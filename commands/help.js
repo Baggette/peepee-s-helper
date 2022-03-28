@@ -16,7 +16,8 @@ module.exports ={
             {name:"`p!help`", value:"This command"},
             {name:"`p!ip`", value:"Displays the server IP"},
             {name:"`p!link`", value:"Displays instructions on how to link your account"},
-            {name:"`p!ping`", value:"View bot latency and uptime"}
+            {name:"`p!ping`", value:"View bot latency and uptime"},
+            {name:"`p!console`", value:"How to join the server on console"}
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
