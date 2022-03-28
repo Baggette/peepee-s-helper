@@ -23,7 +23,7 @@ client.on('ready', () => {
     client.user.setPresence({ activities: [{ name: 'Listening To The PepiOnLine SMP' }], status: 'active' });
 });
 client.on('messageCreate', (message) => { 
-    if (!message.content.startsWith(Prefix) || message.author.bot) return;
+    if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
     const args = message.content.slice(Prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
