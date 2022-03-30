@@ -20,7 +20,7 @@ for (const file of commandFiles) {
 }
 client.on('ready', () => {
     console.log('Peepee is online')
-    client.user.setPresence({ activities: [{ name: 'Listening To The PepiOnLine SMP' }], status: 'active' });
+    client.user.setPresence({ activities: [{ name: 'the PepiOnLine SMP', type: 'WATCHING' }], status: 'active' });
 });
 client.on('messageCreate', (message) => { 
     if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
