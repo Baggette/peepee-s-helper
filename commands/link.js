@@ -9,10 +9,11 @@ module.exports ={
     .setTitle("How to link your account")
     .setDescription("Did you join the server and was asked to 'link your account'? and are wondering what to do?")
     .addFields(
-        {name: "Step one", value: "Join the server (if you don't know the ip refer to p!ip)"},
-        {name: 'Step two', value: "You should be greeted with a screen that tells you to dm a 4 digit code to <@875352108696748032>"},
-        {name: 'Step three', value: "Rejoin the smp and you should be set"},
-        {name: 'Toubleshooting', value:"Are you unable to dm the bot? Make sure you have DMs turned on in The PepiOnLine SMP discord server."}
+        {name: "Step 1", value: "Join the server (if you don't know the IP refer to p!ip)"},
+        {name: 'Step 2', value: "You should be greeted with a screen that tells you to DM a 4 digit code to <@875352108696748032>"},
+        {name: 'Step 3', value: "DM said code to <@875352108696748032>"},
+        {name: 'Step 4', value: "Rejoin the SMP and you should be all set"},
+        {name: 'Toubleshooting', value:"Are you unable to DM the bot? Make sure you have DMs turned on in The PepiOnLine SMP Discord server."}
         )
     .setTimestamp()
     message.channel.send({embeds: [embed]})
