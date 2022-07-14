@@ -7,8 +7,8 @@ module.exports ={
     .setColor('#FF0000')
     .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
     .setTitle('How do I appeal a ban?')
-    .setDescription("You want to know how to appeal a ban, well you're in luck, theres a google forum you can fill out")
-    .addField('The google forum', 'https://forms.gle/PkjPkjLatiZ6Df9z6', true)
+    .setDescription("If you were banned and believe your ban was unfair or that your punishment was too harsh, you can appeal your ban")
+    .addField('Unban Form', 'https://forms.gle/PkjPkjLatiZ6Df9z6', true)
     .setTimestamp()
     message.channel.send({embeds: [embed]})
     }
