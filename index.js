@@ -26,7 +26,10 @@ client.on('messageCreate', (message) => {
     if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
     const args = message.content.slice(Prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-
+    if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+  message.reply(`my prefix here is ${Prefix}`)
+  return
+};
     
     if (!client.commands.get(command)) {
         return
