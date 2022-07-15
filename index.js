@@ -22,8 +22,18 @@ client.on('ready', () => {
     console.log('Peepee is online')
     client.user.setPresence({ activities: [{ name: 'the PepiOnLine SMP', type: 'WATCHING' }], status: 'active' });
 });
+
 client.on('messageCreate', (message) => { 
-    if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
+    if (message.content.startsWith(Prefix) && message.channelId === "872185514885791796"){
+          message.reply("Please do not use bot commands in general, use <#873623280177799198> instead.") 
+          return;
+      }
+      if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+        message.reply(`my prefix here is ${Prefix}`)
+        
+      };
+      
+      if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
     const args = message.content.slice(Prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
    
@@ -32,7 +42,6 @@ client.on('messageCreate', (message) => {
         return
     }
     
-
     client.commands.get(command).execute(message, args, client)
 
 });

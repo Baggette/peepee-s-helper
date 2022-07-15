@@ -20,6 +20,8 @@ module.exports ={
             {name:"`p!console`", value:"How to join the server on console"},
             {name:"`p!kick`", value:"Kicks a mentioned user"},
             {name:"`p!ban`", value:"Bans a mentioned user"},
+            {name:"`p!source`", value:"The source code for this bot, feel free to contribute!!!"},
+            {name:"`p!status`", value:"Displays server info and status"},
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
