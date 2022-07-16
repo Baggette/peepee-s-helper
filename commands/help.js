@@ -9,7 +9,7 @@ module.exports ={
         .setTitle("Command list for peepee's helper")
         .addFields(
             {name:"`p!about`", value:"Information about the origins of this server"},
-            {name:"`p!appeals`", value:'Some basic information on how to appeal a ban'},
+            {name:"`p!appeal`", value:'Some basic information on how to appeal a ban'},
             {name:"`p!commands`", value:"Get a list of useful in-game commands"},
             {name:"`p!economy`", value:"View basic prices for the in-game sellable items"},
             {name:"`p!grief`", value:"Some basic information on how to report a grief"},
