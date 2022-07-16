@@ -22,7 +22,7 @@ module.exports ={
     .addFields(
         {name:"Server Version", value: `${string.version.name}`},
         {name:"Server Protocol Version", value:`${string.version.protocol}`},
-        {name:"Payers Online", value:`${string.players.online}`},
+        {name:"Players Online", value:`${string.players.online}`},
         {name:"Max Players", value:`${string.players.max}`},
         {name:"MOTD (May Not Display Accurately)", value:`${string.motd.clean}`},
         {name:"Latency", value:`${string.roundTripLatency}`},
