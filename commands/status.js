@@ -17,8 +17,8 @@ module.exports ={
         const embed = new MessageEmbed()
     .setColor("#FF0000")
     .setAuthor({name: "Peepee's Helper", iconURL: "https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
-    .setTitle("PepiOnLine Smp Server Status")
-    .setDescription("This will show the status and info about the minecraft server")
+    .setTitle("PepiOnLine SMP Server Status")
+    .setDescription("This displays the status and info about the Minecraft server")
     .addFields(
         {name:"Server Version", value: `${string.version.name}`},
         {name:"Server Protocol Version", value:`${string.version.protocol}`},
