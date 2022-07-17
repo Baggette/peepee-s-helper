@@ -10,11 +10,6 @@ const client = new Client({
         Intents.FLAGS.GUILD_MESSAGES
     ]
 });
-let lastCmdSentTime = {};
-let waitTimeForUser =  30000 ; //Users can only run a command once every 5 minutes
-let botLastSent = false;
-let timeBetweenEachCmd = 30000; //Bot will only respond once a minute.
-
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -29,20 +24,19 @@ client.on('ready', () => {
 });
 
 client.on("messageCreate", (message) => {
-   if(botLastSent !== false ? message.createdTimestamp - botLastSent < timeBetweenEachCmd : false) return; //don't let the bot run a cmd every [timeBetweenEachCmd]
-   let userLastSent = lastCmdSentTime[message.author.id] || false;
-   if(userLastSent !== false ? message.createdTimestamp - userLastSent < waitTimeForUser : false) return; //don't let the user run a cmd every [waitTimeForUser]
-   lastCmdSentTime[message.author.id] = message.createdTimestamp;
-   botLastSent = message.createdTimestamp;
     if (message.content.startsWith(Prefix) && message.channelId === "872185514885791796"){
           message.reply("Please do not use bot commands in general, use <#873623280177799198> instead.") 
-          return;
+          .then(msg => {
+            setTimeout(() => msg.delete(), 5000)
+          })
       }
     if (message.mentions.users.has(client.user.id) && !message.author.bot) {
         message.reply(`my prefix here is ${Prefix}`)
-        
+        .then(msg => {
+            setTimeout(() => msg.delete(), 5000)
+          })
       };
-
+      
    //RUN COMMANDS
 
 });

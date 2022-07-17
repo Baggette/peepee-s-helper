@@ -11,7 +11,7 @@ module.exports ={
         .addFields(
             {name:"Crops and Food", value:"Bread - $0.06 \n Baked Potato - $0.03 \n Wheat - $0.02 \n Potato - $0.02 \n Carrot - $0.02 \n Beetroot - $0.02 \n Melon Slice - $0.02"},
             {name:"Items", value:"Enchanted Golden Apple - $500 \n Nether Star - $300 \n Prismarine Shard - $0.10 \n Lead - $0.10 \n Wither Skeleton Skull - $25 \n Blaze Rod - $0.10"},
-            {name:"Ores", value:"Netherite Ingot - $25 \n Netherite Scrap - $5 \n Amethyst Shard - $0.10 \n Diamond - $2
+            {name:"Ores", value:"Netherite Ingot - $25 \n Netherite Scrap - $5 \n Amethyst Shard - $0.10 \n Diamond - $2"},
             {name:"Blocks", value:"Glass - $0.05 \n Obsidian - $0.10"}
         )
         .setTimestamp()
