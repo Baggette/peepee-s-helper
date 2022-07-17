@@ -18,7 +18,7 @@ module.exports ={
         if(!target) return message.reply(`I can't find that member`)
         
         if(target.roles.highest.position >= message.member.roles.highest.position || message.author.id !== message.guild.ownerId) {
-          return message.reply(`They have more power than you`)
+          return message.reply(`You cannot ban that person because they have more power than you`)
         }
         
         if(target.id === message.author.id) return message.reply(`I can't ban you as you are the Boss`)
@@ -40,7 +40,7 @@ module.exports ={
           message.delete()
           
         } else {
-          return message.reply(`I can't ban them, make sure that my role is above of theirs`)
+          return message.reply(`I can't ban them. Make sure that my role is above theirs`)
         }
         return undefined
     }}
