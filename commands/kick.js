@@ -9,9 +9,9 @@ module.exports ={
         
         const reason = args.slice(1).join(" ")
         
-        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply(`You don't have enough powers to kick someone`)
+        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply(`You don't have the authority to kick someone`)
         
-        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`I don't have powers to kick someone`)
+        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`I don't have power to kick someone`)
         
         if(!args[0]) return message.reply(`Please mention someone to kick`)
         
@@ -21,7 +21,7 @@ module.exports ={
           return message.reply(`They have more power than you`)
         }
         
-        if(target.id === message.author.id) return message.reply(`I can't kick you as you are the Boss`)
+        if(target.id === message.author.id) return message.reply(`You can't kick yourself :skull:`)
         
         if(target.bannable) {
           let embed = new MessageEmbed()
@@ -40,7 +40,7 @@ module.exports ={
           message.delete()
           
         } else {
-          return message.reply(`I can't kick them, make sure that my role is above of theirs`)
+          return message.reply(`I can't kick them. make sure that my role is above theirs`)
         }
         return undefined
     }}
