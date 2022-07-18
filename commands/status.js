@@ -1,4 +1,5 @@
 const util = require('minecraft-server-util');
+const fs = require('fs');
 const {MessageEmbed, MessageSelectMenu} = require('discord.js');
 const options = {
     timeout: 1000 * 5, // timeout in milliseconds
@@ -9,7 +10,7 @@ module.exports ={
     description:"Minecraft server status",
     execute(message, args, client){
         
-        util.status('pepionline.dimitrodam.com ', 25581, options)
+       util.status('pepionline.dimitrodam.com', 25581, options)
     .then((result) => {
         
         const string1 = JSON.stringify(result);
@@ -28,13 +29,32 @@ module.exports ={
         {name:"Latency", value:`${string.roundTripLatency}`},
     )
     .setTimestamp()
+    fs.writeFileSync('data.json', string1);
     message.channel.send({embeds: [embed]})
     })
     
-    .catch((error) => console.error(error));
-    
-    
-    
+    .catch((error) =>{
+        fs.readFile('data.json', (err, data) => {
+            if (err) throw err;
+        const string = JSON.parse(data);
+        const embed = new MessageEmbed()
+    .setColor("#808080")
+    .setAuthor({name: "Peepee's Helper", iconURL: "https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
+    .setTitle("PepiOnLine SMP Server Status (Server Offline)")
+    .setDescription("The server is offline, this is the last cached data for the server")
+    .addFields(
+        {name:"Server Version", value: `${string.version.name}`},
+        {name:"Server Protocol Version", value:`${string.version.protocol}`},
+        {name:"Players Online", value:`${string.players.online}`},
+        {name:"Max Players", value:`${string.players.max}`},
+        {name:"MOTD (May Not Display Accurately)", value:`${string.motd.clean}`},
+        {name:"Latency", value:`${string.roundTripLatency}`},
+    )
+    .setTimestamp()
+    message.channel.send({embeds: [embed]})
+        });
+        
+    });
 }
     
 }
