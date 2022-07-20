@@ -6,8 +6,9 @@ const fs = require('fs')
 const Prefix = "p!"
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES
+        "Guilds",
+        "GuildMessages",
+        "MessageContent"
     ]
 });
 const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console"]

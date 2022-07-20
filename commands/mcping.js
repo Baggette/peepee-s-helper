@@ -1,5 +1,5 @@
 const util = require('minecraft-server-util');
-const {MessageEmbed, MessageSelectMenu} = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 const options = {
     timeout: 1000 * 5, // timeout in milliseconds
     enableSRV: true // SRV record lookup
@@ -21,7 +21,7 @@ module.exports ={
         
         const string1 = JSON.stringify(result);// turn the object into a string
         const string = JSON.parse(string1);// make the string parsable
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
     .setColor("#FF0000")
     .setTitle("Minecraft server status")
     .setDescription(`This will show the status and info about the minecraft server \n **Server ip:** ${server_ip} \n **Server port:** ${server_port}`)
@@ -39,7 +39,7 @@ module.exports ={
     
     .catch((error) => {
     console.log(error);// if the server was unable to be pinged or something else happened
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
     .setColor("#808080")
     .setTitle("There waa an error preforming your command")
     .setDescription(`The server was unable to be pinged or you mis-typed the info`)

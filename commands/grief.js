@@ -1,9 +1,9 @@
-const {MessageEmbed} = require('discord.js')
+const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:"grief",
     description:"Report a grief",
     execute(message,args){
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
         .setTitle('Did you see a grief and want to report it?')

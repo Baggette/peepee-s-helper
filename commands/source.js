@@ -1,10 +1,10 @@
 
-const {MessageEmbed, MessageSelectMenu} = require('discord.js')
+const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:"source",
     description:"Shows The bot source code",
     execute(message, args, client){
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setTitle("Peepee's Helper Source code")
         .setURL('https://github.com/Baggette/peepee-s-helper')
