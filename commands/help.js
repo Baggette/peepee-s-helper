@@ -22,6 +22,7 @@ module.exports ={
             {name:"`p!ban`", value:"Bans a mentioned user"},
             {name:"`p!source`", value:"The source code for this bot, feel free to contribute!"},
             {name:"`p!status`", value:"Displays server info and status"},
+            {name:"`p!mcping <server ip> <port>`", value:"Pings a desired minecraft server **java only**"},
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
