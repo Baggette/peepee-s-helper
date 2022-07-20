@@ -10,6 +10,7 @@ const client = new Client({
         Intents.FLAGS.GUILD_MESSAGES
     ]
 });
+const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console"]
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -24,54 +25,36 @@ client.on('ready', () => {
 });
 
 client.on("messageCreate", (message) => {
-    if (message.content.startsWith(Prefix) && message.channelId === "872185514885791796"){
+    const args = message.content.slice(Prefix.length).split(/ +/);
+      const command = args.shift().toLowerCase();
+    if (message.content.startsWith(Prefix) && message.channelId === "872185514885791796" && !commandWhitelist.includes(command)){
           message.reply("Please do not use bot commands in general, use <#873623280177799198> instead.") 
           .then(msg => {
             setTimeout(() => msg.delete(), 5000)
           })
       }
-    if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+      
+   //RUN COMMANDS
+
+});
+
+client.on('messageCreate', (message) => { 
+      if (!message.content.startsWith(Prefix) || message.author.bot) return;
+      const args = message.content.slice(Prefix.length).split(/ +/);
+      const command = args.shift().toLowerCase();
+      if (message.mentions.users.has(client.user.id) && !message.author.bot) {
         message.reply(`my prefix here is ${Prefix}`)
         .then(msg => {
             setTimeout(() => msg.delete(), 5000)
           })
       };
-      
-   //RUN COMMANDS
-
+      if(message.channelId === "872185514885791796" && !commandWhitelist.includes(command))return
+    
+      if (!client.commands.get(command)) {
+          return
+      }
+    
+      client.commands.get(command).execute(message, args, client)
+ 
 });
-client.on('messageCreate', (message) => { 
-    
-      
-      if (!message.content.startsWith(Prefix) || message.author.bot || message.channelId === "872185514885791796") return;
-    const args = message.content.slice(Prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-   
-    
-    if (!client.commands.get(command)) {
-        return
-    }
-    
-    client.commands.get(command).execute(message, args, client)
-
-});
-/*client.on('guildMemberAdd', member => {
-    const welcomeEmbed = new MessageEmbed()
-
-    welcomeEmbed.setColor('#5cf000')
-    welcomeEmbed.setTitle('**' + member.user.username + '** is now apart of The PepiOnLine SMP with **' + member.guild.memberCount + '** other people')
-    welcomeEmbed.setImage('https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80')
-
-    member.guild.channels.cache.get("957079331102933074").send({embeds:[welcomeEmbed]})
-})
-
-client.on('guildMemberRemove', member => {
-    const goodbyeEmbed = new MessageEmbed()
-
-    goodbyeEmbed.setColor('#f00000')
-    goodbyeEmbed.setTitle('**' + member.user.username + '** Left The PepiOnLine SMP, There is now **' + member.guild.memberCount + '** Members left')
-    goodbyeEmbed.setImage('https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80')
-
-    member.guild.channels.cache.get("957079331102933074").send({embeds:[goodbyeEmbed]})
-})*/
 client.login(process.env.TOKEN)
