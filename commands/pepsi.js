@@ -16,7 +16,7 @@ module.exports={
             {name:"`p!withdraw`", value:"Withdraw money from your bank"},
             {name:"`p!shop`", value:"If unsure what to do run `p!shop help`"},     
         )
-        .setTimestamp
+        .setTimestamp()
         message.channel.send({embeds:[embed]})
     }
 }
