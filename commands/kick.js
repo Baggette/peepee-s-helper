@@ -1,4 +1,4 @@
-const {EmbedBuilder} = require('discord.js')
+/*const {EmbedBuilder} = require('discord.js')
 
 module.exports ={
     name: 'kick',
@@ -43,4 +43,5 @@ module.exports ={
           return message.reply(`I can't kick them. make sure that my role is above theirs`)
         }
         return undefined
-    }}
+    }}*/ 
+    //disabled for now

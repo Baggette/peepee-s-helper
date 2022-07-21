@@ -18,11 +18,10 @@ module.exports ={
             {name:"`p!link`", value:"Displays instructions on how to link your account"},
             {name:"`p!ping`", value:"View bot latency and uptime"},
             {name:"`p!console`", value:"How to join the server on console"},
-            {name:"`p!kick`", value:"Kicks a mentioned user"},
-            {name:"`p!ban`", value:"Bans a mentioned user"},
             {name:"`p!source`", value:"The source code for this bot, feel free to contribute!"},
             {name:"`p!status`", value:"Displays server info and status"},
             {name:"`p!mcping <server ip> <port>`", value:"Pings a desired minecraft server **java only**"},
+            {name:"`p!pepsi`",value:"Get info about the economy built into the bot"},
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})

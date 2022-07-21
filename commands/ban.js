@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js')
+/*const { EmbedBuilder } = require('discord.js')
 module.exports ={
     name: 'ban',
     description: 'Bans a user',
@@ -8,9 +8,9 @@ module.exports ={
         
         const reason = args.slice(1).join(" ")
         
-        if(!message.member.permissions.has("BAN_MEMBERS")) return message.reply(`You don't have enough powers to ban someone`)
+        if(!message.member.permissions.has("BanMembers")) return message.reply(`You don't have enough powers to ban someone`)
         
-        if(!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply(`I don't have powers to ban someone`)
+        if(!guild.members.me.permissions.has("BanMembers")) return message.reply(`I don't have powers to ban someone`)
         
         if(!args[0]) return message.reply(`Please mention someone to ban`)
         
@@ -42,4 +42,5 @@ module.exports ={
           return message.reply(`I can't ban them. Make sure that my role is above theirs`)
         }
         return undefined
-    }}
+    }}*/
+    //disabled for now
