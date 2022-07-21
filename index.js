@@ -34,6 +34,10 @@ client.on("messageCreate", (message) => {
             setTimeout(() => msg.delete(), 5000)
           })
       }
+    if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+         message.reply(`my prefix here is ${Prefix}`)
+
+       };
       
    //RUN COMMANDS
 
