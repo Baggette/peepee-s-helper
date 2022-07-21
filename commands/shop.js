@@ -45,10 +45,10 @@ const eco = new Economy({
                 {name:"`p!shop search <item name>`", value:"Search for an item in the shop"},
                 {name:"`p!shop clear`", value:"Clear the entire shop (remove all items)"},
                 {name:"`p!shop inventory`", value:"See all items in your inventory"},
-                {name:"`p!shop use <item name>", value:"Use a specfied item in your inventory"},
+                {name:"`p!shop use <item name>`", value:"Use a specfied item in your inventory"},
                 {name:"`p!shop clear inventory`", value:"Removes all items in your inventory **run this command at your own risk, items will not be restored**"},
                 {name:"`p!shop history`", value:"See your purchase history"},
-                {name:"`p!shop clear history", value:"Clear your purchase history"},
+                {name:"`p!shop clear history`", value:"Clear your purchase history"},
             )
             .setTimestamp()
             message.channel.send({embeds:[help_embed]})
