@@ -1,6 +1,6 @@
 const util = require('minecraft-server-util');
 const fs = require('fs');
-const {MessageEmbed, MessageSelectMenu} = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 const options = {
     timeout: 1000 * 5, // timeout in milliseconds
     enableSRV: true // SRV record lookup
@@ -15,7 +15,7 @@ module.exports ={
         
         const string1 = JSON.stringify(result);
         const string = JSON.parse(string1);
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
     .setColor("#FF0000")
     .setAuthor({name: "Peepee's Helper", iconURL: "https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
     .setTitle("PepiOnLine SMP Server Status")
@@ -37,7 +37,7 @@ module.exports ={
         fs.readFile('data.json', (err, data) => {
             if (err) throw err;
         const string = JSON.parse(data);
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
     .setColor("#808080")
     .setAuthor({name: "Peepee's Helper", iconURL: "https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
     .setTitle("PepiOnLine SMP Server Status (Server Offline)")

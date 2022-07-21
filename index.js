@@ -6,8 +6,9 @@ const fs = require('fs')
 const Prefix = "p!"
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES
+        "Guilds",
+        "GuildMessages",
+        "MessageContent"
     ]
 });
 const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console"]
@@ -33,6 +34,10 @@ client.on("messageCreate", (message) => {
             setTimeout(() => msg.delete(), 5000)
           })
       }
+    if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+         message.reply(`my prefix here is ${Prefix}`)
+
+       };
       
    //RUN COMMANDS
 
