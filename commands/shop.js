@@ -51,6 +51,7 @@ const eco = new Economy({
                 {name:"`p!shop clear history", value:"Clear your purchase history"},
             )
             .setTimestamp()
+            message.channel.send({embeds:[help_embed]})
         }
         if(!args[0]){    
         const shop = eco.shop.list(message.guild.id)
