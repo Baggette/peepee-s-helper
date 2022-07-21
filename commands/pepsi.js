@@ -14,8 +14,9 @@ module.exports={
             {name:"`p!balance`", value:"See your current balance"},
             {name:"`p!deposit`", value:"Deposit pepsi coin into your bank account"},
             {name:"`p!withdraw`", value:"Withdraw money from your bank"},
-            {name:"`p!shop`", value:"If unsure what to do run `p!shop help`"},
-            message.channel.send({embeds:[embed]})
+            {name:"`p!shop`", value:"If unsure what to do run `p!shop help`"},     
         )
+        .setTimestamp
+        message.channel.send({embeds:[embed]})
     }
 }
