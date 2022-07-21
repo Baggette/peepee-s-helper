@@ -28,19 +28,19 @@ client.on('ready', () => {
 client.on("messageCreate", (message) => {
     const args = message.content.slice(Prefix.length).split(/ +/);
       const command = args.shift().toLowerCase();
-    if (message.content.startsWith(Prefix) && message.channelId === "872185514885791796" && !commandWhitelist.includes(command)){
+    if (message.content.startsWith(Prefix) && message.channel.id === "872185514885791796" && !commandWhitelist.includes(command)){
           message.reply("Please do not use bot commands in general, use <#873623280177799198> instead.") 
           .then(msg => {
             setTimeout(() => msg.delete(), 5000)
           })
       }
-    if (message.mentions.users.has(client.user.id) && !message.author.bot) {
-         message.reply(`my prefix here is ${Prefix}`)
-        .then(msg => {
-            setTimeout(() => msg.delete(), 5000)
-          })
+      if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+        message.reply(`my prefix here is ${Prefix}`)
+       .then(msg => {
+           setTimeout(() => msg.delete(), 5000)
+         })
 
-       };
+      };
       
    //RUN COMMANDS
 

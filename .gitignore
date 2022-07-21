@@ -24,3 +24,5 @@ env.bak/
 venv.bak/
 token.txt
 config.py
+storage.json
+package-lock.json

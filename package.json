@@ -9,6 +9,7 @@
   "author": "Baggette",
   "license": "ISC",
   "dependencies": {
+    "discord-economy-super": "^1.5.2",
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
