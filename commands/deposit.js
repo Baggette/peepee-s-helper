@@ -42,7 +42,7 @@ const eco = new Economy({
         if (!amount) return message.channel.send({embeds:[specify_embed]})
         const must_be_number_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle("The amount has to be a number, stop trying to break me")
+        .setTitle("Please specify a numerical value")
         .setTimestamp()
         if (isNaN(amount)) return message.channel.send({embeds:[must_be_number_embed]})
         const poor = new EmbedBuilder()
