@@ -1,6 +1,6 @@
 module.exports={
     name:"leave",
-    description:"make the bot leave the vc",
+    description:"Make the bot leave the VC",
     execute(client, message, args){
         client.distube.voices.leave(message)
     }

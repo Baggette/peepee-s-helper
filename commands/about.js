@@ -1,7 +1,7 @@
 const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:"about",
-    description:"displays some server info",
+    description:"Displays some server info",
     execute(client, message, args){
         const embed = new EmbedBuilder()
         .setColor('#FF0000')

@@ -1,7 +1,7 @@
 {
   "name": "peepees-helper",
   "version": "1.0.0",
-  "description": "The bot to help out the pepionline smp",
+  "description": "A bot to help out the PepiOnLine SMP",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
