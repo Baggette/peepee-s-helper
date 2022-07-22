@@ -25,7 +25,7 @@ module.exports={
     queue.seek(time)
     const no_music_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription(`Seeked to ${time}!`)
+        .setDescription(`Seeking to ${time}!`)
         .setTimestamp()
     message.channel.send({embeds:[no_music_embed]})
     }
