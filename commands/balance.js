@@ -40,7 +40,7 @@ const eco = new Economy({
     const embed = new EmbedBuilder()
     .setColor("#FF0000")
     .setTitle("Your Balance")
-    .setDescription(`**${member.user.username}**'s Balance:\nCash: **${balance}** pepsi's.\nBank: **${bank}** pepsi's.`)
+    .setDescription(`**${member.user.username}**'s Balance:\nCash: **${balance}** pepsis.\nBank: **${bank}** pepsis.`)
     message.channel.send({embeds:[embed]})
     }
   }
