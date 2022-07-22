@@ -1,6 +1,6 @@
 module.exports={
     name:"stop",
-    description:"stop currently playing music",
+    description:"Stop currently playing music",
     execute(client, message){
         const queue = client.distube.getQueue(message)
     if (!queue) return message.channel.send(`There is nothing in the queue right now!`)
