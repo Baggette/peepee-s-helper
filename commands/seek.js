@@ -2,7 +2,7 @@ const {EmbedBuilder} = require("discord.js")
 module.exports={
     name:"seek",
     description:"Fast forward music",
-    execure(client, message, args){
+    execute(client, message, args){
         const queue = client.distube.getQueue(message)
         const no_queue_embed = new EmbedBuilder()
         .setColor("#FF0000")
