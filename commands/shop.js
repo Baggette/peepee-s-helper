@@ -192,7 +192,7 @@ const eco = new Economy({
             .setDescription('Specify the name or ID of item in your inventory.')
             .setTimestamp()
             if (!args[1]) return message.channel.send({embeds:[no_item_specified_embed]})
-            const itemMessage = eco.inventory.useItem(args[1], message.author.id, message.guild.id, bot)
+            const itemMessage = eco.inventory.useItem(args[1], message.author.id, message.guild.id, client)
             const no_item_specified_in_inv_embed = new EmbedBuilder()
             .setColor("#FF0000")
             .setDescription(`Cannot find item ${args[1]} in your inventory.`)
