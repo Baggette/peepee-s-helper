@@ -32,7 +32,7 @@ const eco = new Economy({
   module.exports={
     name:"deposit",
     description:"Deposit money to your bank",
-    execute(message, args, client){
+    execute(client, message, args){
         const amount = args[0]
         const balance = eco.balance.fetch(message.author.id, message.guild.id)
         const specify_embed =  new EmbedBuilder()

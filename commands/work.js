@@ -32,7 +32,7 @@ const eco = new Economy({
   module.exports={
     name:"work",
     description:"Work your ass off for a couple of virtual dollars",
-    execute(message, args, client){ 
+    execute(client, message, args){ 
         const work = eco.rewards.work(message.author.id, message.guild.id)
         const worked_embed = new EmbedBuilder()
         .setColor("#808080")

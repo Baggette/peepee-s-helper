@@ -33,7 +33,7 @@ const eco = new Economy({
   module.exports={
     name:"withdraw",
     description:"Withdraw pepsi's from your bank",
-    execute(message, args, client){
+    execute(client, message, args){
           
         const amount = args[0]
     const balance = eco.bank.fetch(message.author.id, message.guild.id)

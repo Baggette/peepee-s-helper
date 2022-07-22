@@ -2,7 +2,7 @@ const {EmbedBuilder} = require("discord.js")
 module.exports={
     name:"pepsi",
     description:"Get info about the pepsi economy",
-    execute(message, args, client){
+    execute(client, message, args){
         const embed = new EmbedBuilder()
         .setColor("#FF0000")
         .setTitle("The pepsi's coin")

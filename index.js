@@ -4,13 +4,25 @@ dotenv.config();
 const Discord = require('discord.js')
 const fs = require('fs')
 const Prefix = "p!"
+const { DisTube } = require('distube')
 const client = new Client({
     intents: [
         "Guilds",
         "GuildMessages",
-        "MessageContent"
+        "MessageContent",
+        "GuildVoiceStates"
     ]
 });
+const { YtDlpPlugin } = require('@distube/yt-dlp')
+client.distube = new DisTube(client, {
+  leaveOnStop: false,
+  emitNewSongOnly: true,
+  emitAddSongWhenCreatingQueue: false,
+  emitAddListWhenCreatingQueue: false,
+  plugins: [
+    new YtDlpPlugin()
+  ]
+})
 const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console"]
 client.commands = new Discord.Collection();
 
@@ -61,8 +73,40 @@ client.on('messageCreate', (message) => {
       if (!client.commands.get(command)) {
           return
       }
+    client.commands.get(command).execute(client, message, args)
     
-      client.commands.get(command).execute(message, args, client)
- 
 });
+const status = queue =>
+  `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.names.join(', ') || 'Off'}\` | Loop: \`${
+    queue.repeatMode ? (queue.repeatMode === 2 ? 'All Queue' : 'This Song') : 'Off'
+  }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``
+client.distube
+  .on('playSong', (queue, song) =>
+    queue.textChannel.send(
+      `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${
+        song.user
+      }\n${status(queue)}`
+    )
+  )
+  .on('addSong', (queue, song) =>
+    queue.textChannel.send(
+      `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    )
+  )
+  .on('addList', (queue, playlist) =>
+    queue.textChannel.send(
+      `Added \`${playlist.name}\` playlist (${
+        playlist.songs.length
+      } songs) to queue\n${status(queue)}`
+    )
+  )
+  .on('error', (channel, e) => {
+    if (channel) channel.send(`An error encountered: ${e.toString().slice(0, 1974)}`)
+    else console.error(e)
+  })
+  .on('empty', channel => channel.send('Voice channel is empty! Leaving the channel...'))
+  .on('searchNoResult', (message, query) =>
+    message.channel.send(`No result found for \`${query}\`!`)
+  )
+  .on('finish', queue => queue.textChannel.send('Finished!'))
 client.login(process.env.TOKEN)

@@ -2,7 +2,7 @@ const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:'help',
     description:'Help command',
-    execute(message, args){
+    execute(client, message, args){
         const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
@@ -22,6 +22,7 @@ module.exports ={
             {name:"`p!status`", value:"Displays server info and status"},
             {name:"`p!mcping <server ip> <port>`", value:"Pings a desired minecraft server. Currently only supports Java servers"},
             {name:"`p!pepsi`",value:"Get info about the economy system built into the bot"},
+            {name:"`p!music`", value:"See the music commands for the bot"}
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})

@@ -32,7 +32,7 @@ const eco = new Economy({
   module.exports={
     name:"lb",
     description:"Leaderboard of pepsi coin",
-    execute(message, args, client){
+    execute(client, message, args){
         const lb = eco.balance.leaderboard(message.guild.id)
         const empty_lb_embed = new EmbedBuilder()
         .setColor("#FF0000")
