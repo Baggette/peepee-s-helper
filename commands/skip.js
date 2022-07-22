@@ -10,12 +10,12 @@ module.exports={
         .setTimestamp()
     if (!queue) return message.channel.send({embeds:[nothing_playing_embed]})
     try {
-      const song = await queue.skip()
+      const song = queue.skip()
       const skipped_embed =  new EmbedBuilder()
       .setColor("#FF0000")
-      .setDescription(`Skipped! Now playing:\n${song.name}`)
+      .setDescription(`Skipped!`)
       .setTimestamp()
-      message.channel.send()
+      message.channel.send({embeds:[skipped_embed]})
     } catch (e) {
         const error_embed =  new EmbedBuilder()
         .setColor("#FF0000")

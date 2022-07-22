@@ -27,6 +27,6 @@ module.exports={
         .setColor("#FF0000")
         .setDescription(`Seeked to ${time}!`)
         .setTimestamp()
-    message.channel.send()
+    message.channel.send({embeds:[no_music_embed]})
     }
 }
