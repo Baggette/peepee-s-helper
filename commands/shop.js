@@ -39,14 +39,14 @@ const eco = new Economy({
             .setColor("#FF0000")
             .setDescription(`Shop help and command list`)
             .addFields(
-                {name:"`p!shop add <item name> <price> <message(optional)> <description(optional)> <amount of items to stock(optional)> <role(optional)>`", value:"adds an item to the shop"},
-                {name:"`p!shop remove <item name>`", value:"remove an item from the shop"},
+                {name:"`p!shop add <item name> <price> <message(optional)> <description(optional)> <amount of items to stock(optional)> <role(optional)>`", value:"Adds an item to the shop"},
+                {name:"`p!shop remove <item name>`", value:"Removes an item from the shop"},
                 {name:"`p!shop buy <item name>`", value:"Buy a desired item from the shop"},
                 {name:"`p!shop search <item name>`", value:"Search for an item in the shop"},
-                {name:"`p!shop clear`", value:"Clear the entire shop (remove all items)"},
+                {name:"`p!shop clear`", value:"Clears the entire shop (deletes all items)"},
                 {name:"`p!shop inventory`", value:"See all items in your inventory"},
                 {name:"`p!shop use <item name>`", value:"Use a specfied item in your inventory"},
-                {name:"`p!shop clear inventory`", value:"Removes all items in your inventory **run this command at your own risk, items will not be restored**"},
+                {name:"`p!shop clear inventory`", value:"Removes all items in your inventory **Run this command at your own risk. Items will not be restored!**"},
                 {name:"`p!shop history`", value:"See your purchase history"},
                 {name:"`p!shop clear history`", value:"Clear your purchase history"},
             )
@@ -102,7 +102,7 @@ const eco = new Economy({
             const item = eco.shop.searchItem(args[1], message.guild.id)
             const item_not_found_embed = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription(`hmmmm I was unable to find ${args[1]} in the shop`)
+            .setDescription(`I was unable to find ${args[1]} in the shop.`)
             .setTimestamp()
             if (!item) return message.channel.send({embeds:[item_not_found_embed]})
             eco.shop.removeItem(args[1], message.guild.id)
@@ -128,7 +128,7 @@ const eco = new Economy({
             if (!item) return message.channel.send({embeds:[could_not_find_item_embed]})
             const poor_man_embed = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription(`You do not have enough pepsi's (${balance}) to buy this item for ${item.price}`)
+            .setDescription(`You do not have enough pepsis (${balance}) to buy this item for ${item.price}`)
             .setTimestamp()
             if (item.price > balance) return message.channel.send({embeds:[poor_man_embed]})
             const purchase = eco.shop.buy(args[1], message.author.id, message.guild.id)
@@ -139,7 +139,7 @@ const eco = new Economy({
             if (purchase == 'max') return message.channel.send({embeds:[max_item_embed]})
             const purchase_success = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription(`You got item "**${item.itemName}**" for **${item.price}** pepsi's (tip use p!shop inventory to see your inventory and p!shop use <item> to use it)`)
+            .setDescription(`You got item "**${item.itemName}**" for **${item.price}** pepsis (Tip: Use p!shop inventory to see your inventory and p!shop use <item> to use it)`)
             .setTimestamp()
             return message.channel.send({embeds:[purchase_success]})
         }
@@ -176,7 +176,7 @@ const eco = new Economy({
             const inv = eco.inventory.fetch(message.author.id, message.guild.id)
             const no_inventory_embed = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription(`You do not have any items currently in your inventory`)
+            .setDescription(`Your inventory is empty`)
             .setTimestamp()
             if (!inv.length) return message.channel.send({embeds:[no_inventory_embed]})
             const inverntory_embed = new EmbedBuilder()
@@ -189,10 +189,10 @@ const eco = new Economy({
         if (args[0] === "use") {
             const no_item_specified_embed = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription('Specify an name or ID of item you have in your inventory.')
+            .setDescription('Specify the name or ID of item in your inventory.')
             .setTimestamp()
             if (!args[1]) return message.channel.send({embeds:[no_item_specified_embed]})
-            const itemMessage = eco.inventory.useItem(args[1], message.author.id, message.guild.id, bot)
+            const itemMessage = eco.inventory.useItem(args[1], message.author.id, message.guild.id, client)
             const no_item_specified_in_inv_embed = new EmbedBuilder()
             .setColor("#FF0000")
             .setDescription(`Cannot find item ${args[1]} in your inventory.`)

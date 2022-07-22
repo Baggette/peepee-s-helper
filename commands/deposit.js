@@ -37,17 +37,17 @@ const eco = new Economy({
         const balance = eco.balance.fetch(message.author.id, message.guild.id)
         const specify_embed =  new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle("You have to specify an amount of ")
+        .setTitle("Please specify an amount")
         .setTimestamp()
         if (!amount) return message.channel.send({embeds:[specify_embed]})
         const must_be_number_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle("The amount has to be a number, stop trying to break me")
+        .setTitle("Please specify a numerical value")
         .setTimestamp()
         if (isNaN(amount)) return message.channel.send({embeds:[must_be_number_embed]})
         const poor = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle(`Man you poor mf you don't have enough money in your balance to deposit **${amount}** pepsi's to your bank`)
+        .setTitle(`Man you poor mf you don't have enough money in your balance to deposit **${amount}** pepsis to your bank`) //this line is gold
         .setTimestamp
         if (amount > balance) return message.channel.send({embeds:[poor]})
             
@@ -55,7 +55,7 @@ const eco = new Economy({
         eco.bank.add(amount, message.author.id, message.guild.id)
         const dep_success = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle(`Successfully deposited **${amount}** pepsi's`)
+        .setTitle(`Successfully deposited **${amount}** pepsis`)
         .setTimestamp()
         message.channel.send({embeds:[dep_success]})
     }

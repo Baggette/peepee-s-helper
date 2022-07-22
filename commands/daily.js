@@ -32,12 +32,12 @@ const eco = new Economy({
   });
   module.exports={
     name:"daily",
-    description:"Get a certain amount of money daily",
+    description:"Get some daily bonus money",
     execute(message, args){
         const daily = eco.rewards.daily(message.author.id, message.guild.id)
         const claimed_daily_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription(`You have already claimed your daily reward! Time left until next claim: **${daily.value.days}** days, **${daily.value.hours}** hours, **${daily.value.minutes}** minutes and **${daily.value.seconds}** seconds.`)
+        .setDescription(`You already claimed your reward today! Time left until next reward: **${daily.value.days}** days, **${daily.value.hours}** hours, **${daily.value.minutes}** minutes, and **${daily.value.seconds}** seconds.`)
         .setTimestamp()
         if (!daily.status) return message.channel.send({embeds:[claimed_daily_embed]})
         const daily_embed = new EmbedBuilder()
