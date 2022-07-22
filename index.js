@@ -1,4 +1,4 @@
-const {Client, Intents, MessageEmbed} = require('discord.js');
+const {Client, Intents, EmbedBuilder} = require('discord.js');
 const dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js')
@@ -76,37 +76,65 @@ client.on('messageCreate', (message) => {
     client.commands.get(command).execute(client, message, args)
     
 });
+       
+        
+       
+       
+        
+        
+        
 const status = queue =>
   `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.names.join(', ') || 'Off'}\` | Loop: \`${
     queue.repeatMode ? (queue.repeatMode === 2 ? 'All Queue' : 'This Song') : 'Off'
   }\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``
 client.distube
-  .on('playSong', (queue, song) =>
-    queue.textChannel.send(
-      `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${
-        song.user
-      }\n${status(queue)}`
-    )
+
+  .on('playSong', (queue, song) =>{
+  const playsong_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`)
+        .setTimestamp()
+    queue.textChannel.send({embeds:[playsong_embed]})
+  })
+  .on('addSong', (queue, song) =>{
+  const addsong_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)
+        .setTimestamp()
+    queue.textChannel.send({embeds:[addsong_embed]})}
   )
-  .on('addSong', (queue, song) =>
-    queue.textChannel.send(
-      `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
-    )
-  )
-  .on('addList', (queue, playlist) =>
-    queue.textChannel.send(
-      `Added \`${playlist.name}\` playlist (${
-        playlist.songs.length
-      } songs) to queue\n${status(queue)}`
-    )
+  .on('addList', (queue, playlist) =>{
+   const addlist_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`)
+        .setTimestamp()
+    queue.textChannel.send({embeds:[addlist_embed]})}
   )
   .on('error', (channel, e) => {
-    if (channel) channel.send(`An error encountered: ${e.toString().slice(0, 1974)}`)
+    const error_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`An error encountered: ${e.toString().slice(0, 1974)}`)
+        .setTimestamp()
+    if (channel) channel.send({embeds:[error_embed]})
     else console.error(e)
   })
-  .on('empty', channel => channel.send('Voice channel is empty! Leaving the channel...'))
-  .on('searchNoResult', (message, query) =>
-    message.channel.send(`No result found for \`${query}\`!`)
+  .on('empty', channel =>{
+  const empty_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription('Voice channel is empty! Leaving the channel...')
+        .setTimestamp() 
+        channel.send({embeds:[empty_embed]})})
+  .on('searchNoResult', (message, query) =>{
+  const no_result_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`No result found for \`${query}\`!`)
+        .setTimestamp()
+    message.channel.send({embeds:[no_result_embed]})}
   )
-  .on('finish', queue => queue.textChannel.send('Finished!'))
+  .on('finish', queue => {
+  const finished_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription("Finished!")
+        .setTimestamp()
+        queue.textChannel.send({embeds:[finished_embed]})})
 client.login(process.env.TOKEN)
