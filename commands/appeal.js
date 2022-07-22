@@ -1,7 +1,7 @@
 const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:"appeal",
-    description:'Get information on appeals',
+    description:'Get information how to appeal a ban',
     execute(message, args){
     const embed = new EmbedBuilder()
     .setColor('#FF0000')

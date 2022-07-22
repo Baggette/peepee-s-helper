@@ -9,9 +9,9 @@ module.exports ={
         
         const reason = args.slice(1).join(" ")
         
-        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply(`You don't have the authority to kick someone`)
+        if(!message.member.permissions.has("KICK_MEMBERS")) return message.reply(`You don't have the power to kick someone`)
         
-        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`I don't have power to kick someone`)
+        if(!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`I don't have the power to kick someone`)
         
         if(!args[0]) return message.reply(`Please mention someone to kick`)
         
@@ -40,7 +40,7 @@ module.exports ={
           message.delete()
           
         } else {
-          return message.reply(`I can't kick them. make sure that my role is above theirs`)
+          return message.reply(`I can't kick them. Make sure that my role is above theirs`)
         }
         return undefined
     }}*/ 

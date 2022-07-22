@@ -8,9 +8,9 @@ module.exports ={
         
         const reason = args.slice(1).join(" ")
         
-        if(!message.member.permissions.has("BanMembers")) return message.reply(`You don't have enough powers to ban someone`)
+        if(!message.member.permissions.has("BanMembers")) return message.reply(`You don't have the power to ban someone!`)
         
-        if(!guild.members.me.permissions.has("BanMembers")) return message.reply(`I don't have powers to ban someone`)
+        if(!guild.members.me.permissions.has("BanMembers")) return message.reply(`I don't have the power to ban someone!`)
         
         if(!args[0]) return message.reply(`Please mention someone to ban`)
         
@@ -20,7 +20,7 @@ module.exports ={
           return message.reply(`You cannot ban that person because they have more power than you`)
         }
         
-        if(target.id === message.author.id) return message.reply(`I can't ban you as you are the Boss`)
+        if(target.id === message.author.id) return message.reply(`why`)
         
         if(target.bannable) {
           let embed = new EmbedBuilder()
