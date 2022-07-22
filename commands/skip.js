@@ -19,7 +19,7 @@ module.exports={
     } catch (e) {
         const error_embed =  new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription(`an error occurred \n  ${e}`)
+        .setDescription(`An error occurred \n  ${e}`)
         .setTimestamp() 
       message.channel.send({embeds:[error_embed]})
     }
