@@ -47,7 +47,7 @@ const eco = new Economy({
         if (isNaN(amount)) return message.channel.send({embeds:[must_be_number_embed]})
         const poor = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle(`Man you poor mf you don't have enough money in your balance to deposit **${amount}** pepsi's to your bank`)
+        .setTitle(`Man you poor mf you don't have enough money in your balance to deposit **${amount}** pepsi's to your bank`) //this line is gold
         .setTimestamp
         if (amount > balance) return message.channel.send({embeds:[poor]})
             
