@@ -1,6 +1,6 @@
 module.exports={
     name:"loop",
-    description:"loop a desired song",
+    description:"Loop a desired song",
     execute(client, message, args){
         const queue = client.distube.getQueue(message)
     if (!queue) return message.channel.send(`There is nothing playing!`)
