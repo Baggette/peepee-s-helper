@@ -36,13 +36,13 @@ const eco = new Economy({
         const work = eco.rewards.work(message.author.id, message.guild.id)
         const worked_embed = new EmbedBuilder()
         .setColor("#808080")
-        .setTitle("you worked already")
-        .setDescription(`Time left until next work:  **${work.value.days}** days, **${work.value.hours}** hours, **${work.value.minutes}** minutes and **${work.value.seconds}** seconds. `)
+        .setTitle("There are no jobs available")
+        .setDescription(`Time left until next job becomes available:  **${work.value.days}** days, **${work.value.hours}** hours, **${work.value.minutes}** minutes and **${work.value.seconds}** seconds. `)
         if (!work.status) return message.channel.send({embeds:[worked_embed]})
         const work_embed = new EmbedBuilder() 
         .setColor("#FF0000")
         .setTitle("You worked for once in your life")
-        .setDescription(`You got **${work.pretty}** pepsi's! \n congrats on wasting your life on a virtual currency`)
+        .setDescription(`You got **${work.pretty}** pepsis! \n Congrats on wasting your life on a virtual currency`)
         message.channel.send({embeds:[work_embed]})
     }
   }
