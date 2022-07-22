@@ -31,4 +31,4 @@ module.exports={
         .setTimestamp()
     message.channel.send({embeds:[music_paused_embed]})
     }
-}
+} 
