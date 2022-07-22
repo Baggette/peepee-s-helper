@@ -36,7 +36,7 @@ const eco = new Economy({
         const lb = eco.balance.leaderboard(message.guild.id)
         const empty_lb_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription('Cannot generate a leaderboard: the server database is empty.')
+        .setDescription('Unable to generate leaderboard because the server database is empty!')
         .setTimestamp()
         if (!lb.length) return message.channel.send({embeds:[empty_lb_embed]})
         const lb_embed = new EmbedBuilder()
