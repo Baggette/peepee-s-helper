@@ -8,7 +8,7 @@ const options = {
 module.exports ={
     name:"status",
     description:"Minecraft server status",
-    execute(message, args, client){
+    execute(client, message, args){
         
        util.status('pepionline.dimitrodam.com', 25581, options)
     .then((result) => {

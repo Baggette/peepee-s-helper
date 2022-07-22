@@ -33,7 +33,7 @@ const eco = new Economy({
   module.exports={
     name:"shop",
     description:"shop",
-    execute(message, args, client, member){
+    execute(client, message, args){
         if(args[0] === "help"){
             const help_embed = new EmbedBuilder()
             .setColor("#FF0000")

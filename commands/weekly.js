@@ -33,7 +33,7 @@ const eco = new Economy({
   module.exports={
     name:"weekly",
     description:"Get a certain amount of money weekly",
-    execute(message, args){
+    execute(client, message, args){
         const weekly = eco.rewards.weekly(message.author.id, message.guild.id)
         const claimed_weekly_embed = new EmbedBuilder()
         .setColor("#FF0000")

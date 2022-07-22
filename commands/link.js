@@ -2,7 +2,7 @@ const {EmbedBuilder} = require('discord.js')
 module.exports ={
     name:'link',
     description:'How to link your account',
-    execute(message,args){
+    execute(client, message, args){
     const embed = new EmbedBuilder()
     .setColor('#FF0000')
     .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})

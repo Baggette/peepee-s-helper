@@ -33,7 +33,7 @@ const eco = new Economy({
   module.exports={
     name:"balance",
     description:"Shows your balance",
-    execute(message, args, client){
+    execute(client, message, args){
     const member = message.guild.members.cache.get(message.mentions.members.first()?.id || message.author.id)    
     const balance = eco.balance.fetch(member.id, message.guild.id)
     const bank = eco.bank.fetch(member.user.id, message.guild.id)
