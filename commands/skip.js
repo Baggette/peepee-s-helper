@@ -3,6 +3,13 @@ module.exports={
     name:"skip",
     description:"Skip a currently playing song",
     execute(client, message, args){
+      if (!message.member.voice.channel) {
+        const must_be_in_vc_embed = new EmbedBuilder()
+      .setColor("#FF0000")
+      .setDescription(`You must be in a voice channel!`)
+      .setTimestamp()
+        return message.channel.send({embeds:[must_be_in_vc_embed]})
+      }
         const queue = client.distube.getQueue(message)
         const nothing_playing_embed =  new EmbedBuilder()
         .setColor("#FF0000")
@@ -24,4 +31,4 @@ module.exports={
       message.channel.send({embeds:[error_embed]})
     }
     }
-}
+} 

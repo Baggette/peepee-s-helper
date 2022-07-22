@@ -17,3 +17,4 @@ module.exports={
     message.channel.send({embeds:[stoppped_music_embed]})
     }
 }
+ 
