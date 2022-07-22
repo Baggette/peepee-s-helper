@@ -1,12 +1,21 @@
+const {EmbedBuilder} = require("discord.js")
 module.exports={
     name:"queue",
     description:"Shows the current queue for songs",
     execute(client, message, agrs){
         const queue = client.distube.getQueue(message)
-    if (!queue) return message.channel.send(`There is nothing playing!`)
+        const nothing_playing_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`There is nothing playing!`)
+        .setTimestamp()
+    if (!queue) return message.channel.send({embeds:[nothing_playing_embed]})
     const q = queue.songs
       .map((song, i) => `${i === 0 ? 'Playing:' : `${i}.`} ${song.name} - \`${song.formattedDuration}\``)
       .join('\n')
-    message.channel.send(`**Server Queue**\n${q}`)
+      const music_queue_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`**Server Queue**\n${q}`)
+        .setTimestamp()
+    message.channel.send({embeds:[music_queue_embed]})
     }
 }

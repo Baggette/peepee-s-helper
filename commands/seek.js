@@ -1,15 +1,32 @@
+const {EmbedBuilder} = require("discord.js")
 module.exports={
     name:"seek",
     description:"Fast forward music",
     execure(client, message, args){
         const queue = client.distube.getQueue(message)
-    if (!queue) return message.channel.send(`There is nothing in the queue right now!`)
+        const no_queue_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`There is nothing in the queue right now!`)
+        .setTimestamp()
+    if (!queue) return message.channel.send({embeds:[no_queue_embed]})
     if (!args[0]) {
-      return message.channel.send(`Please provide position (in seconds) to seek!`)
+      const no_valid_position_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Please provide position (in seconds) to seek!`)
+        .setTimestamp()
+      return message.channel.send({embeds:[no_valid_position_embed]})
     }
     const time = Number(args[0])
-    if (isNaN(time)) return message.channel.send(`Please enter a valid number!`)
+    const no_valid_number_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Please enter a valid number!`)
+        .setTimestamp()
+    if (isNaN(time)) return message.channel.send({embeds:[no_valid_number_embed]})
     queue.seek(time)
-    message.channel.send(`Seeked to ${time}!`)
+    const no_music_embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setDescription(`Seeked to ${time}!`)
+        .setTimestamp()
+    message.channel.send()
     }
 }
