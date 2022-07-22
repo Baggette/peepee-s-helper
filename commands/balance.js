@@ -39,7 +39,7 @@ const eco = new Economy({
     const bank = eco.bank.fetch(member.user.id, message.guild.id)
     const embed = new EmbedBuilder()
     .setColor("#FF0000")
-    .setTitle("Your balance")
+    .setTitle("Your Balance")
     .setDescription(`**${member.user.username}**'s Balance:\nCash: **${balance}** pepsi's.\nBank: **${bank}** pepsi's.`)
     message.channel.send({embeds:[embed]})
     }
