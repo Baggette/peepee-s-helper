@@ -18,7 +18,6 @@ module.exports={
             {name:"`p!loop`", value:"Loop the current playing song"},
             {name:"`p!leave`", value:"Force the bot to leave the vc"},
             {name:"`p!nowplaying`", value:"See the name and progress of the currently playing song"},
-            {name:"`p!skip`", value:"Skip the current song for the next one in queue"},
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
