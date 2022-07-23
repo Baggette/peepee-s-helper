@@ -19,6 +19,7 @@ module.exports={
             {name:"`p!leave`", value:"Force the bot to leave the VC"},
             {name:"`p!nowplaying`", value:"See the name and progress of the current song"},
             {name:"`p!skip`", value:"Skip the currently playing song"},
+            {name:"`p!volume <0-100>`", value:"Adjust the volume of the music"}
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
