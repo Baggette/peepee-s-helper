@@ -19,7 +19,7 @@ module.exports={
     const volume = parseInt(args[0])
     const no_valid_number_embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setDescription(`Please enter a valid number! (0-100)`)
+        .setDescription(`Please enter a valid number! (0-100 you can go above 100 but it is not reccomended as the audio will start to tear)`)
         .setTimestamp()
     if (isNaN(volume)) return message.channel.send({embeds:[no_valid_number_embed]})
     queue.setVolume(volume)
