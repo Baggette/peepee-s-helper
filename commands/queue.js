@@ -22,7 +22,7 @@ module.exports={
         .setColor("#FF0000")
         .setDescription(
           `${(
-            `Here's the server queue${
+            `Here's the server queue (will only show 20 at a time)${
               queue.songs.length > 20
                 ? `1-20/${queue.songs.length}`
                 : queue.songs.length
