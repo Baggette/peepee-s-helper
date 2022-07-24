@@ -10,7 +10,7 @@ module.exports={
         const songs = queue.songs
         .map((song, pos) => {
           return `${
-            pos === 0 ? `Current:` : `#${pos}.`
+            pos === 0 ? `Here's the server queue (will only show 20 at a time) \n Current:` : `#${pos}.`
           } **${song.name}** \`[${
             song.formattedDuration
           }]\``;
@@ -22,7 +22,7 @@ module.exports={
         .setColor("#FF0000")
         .setDescription(
           `${(
-            `Here's the server queue (will only show 20 at a time)${
+            `${
               queue.songs.length > 20
                 ? `1-20/${queue.songs.length}`
                 : queue.songs.length
