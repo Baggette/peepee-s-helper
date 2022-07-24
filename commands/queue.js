@@ -1,21 +1,39 @@
 const {EmbedBuilder} = require("discord.js")
+const fs = require('fs');
 module.exports={
     name:"queue",
     description:"Shows the current queue for songs",
     execute(client, message, agrs){
+        const play = "▶️"
+        const pause = "⏸️"
         const queue = client.distube.getQueue(message)
-        const nothing_playing_embed = new EmbedBuilder()
-        .setColor("#FF0000")
-        .setDescription(`There is nothing playing!`)
-        .setTimestamp()
-    if (!queue) return message.channel.send({embeds:[nothing_playing_embed]})
-    const q = queue.songs
-      .map((song, i) => `${i === 0 ? 'Playing:' : `${i}.`} ${song.name} - \`${song.formattedDuration}\``)
-      .join('\n')
-      const music_queue_embed = new EmbedBuilder()
-        .setColor("#FF0000")
-        .setDescription(`**Server Queue**\n${q}`)
-        .setTimestamp()
-    message.channel.send({embeds:[music_queue_embed]})
+        const songs = queue.songs
+        .map((song, pos) => {
+          return `${
+            pos === 0 ? `Current:` : `#${pos}.`
+          } **${song.name}** \`[${
+            song.formattedDuration
+          }]\``;
+        })
+        .slice(0, 20)
+        .join("\n");
+
+      const embed = new EmbedBuilder()
+        .setDescription(
+          `${(
+            `Here's the server queue${
+              queue.songs.length > 20
+                ? `1-20/${queue.songs.length}`
+                : queue.songs.length
+            } songs):`,
+            queue.paused
+              ? pause
+              : play
+          )}\n${songs}`
+        );
+
+      message.reply({
+        embeds: [embed],
+      });
     }
 }
