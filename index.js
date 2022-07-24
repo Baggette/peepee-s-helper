@@ -75,14 +75,7 @@ client.on('messageCreate', (message) => {
       }
     client.commands.get(command).execute(client, message, args)
     
-});
-       
-        
-       
-       
-        
-        
-        
+});     
 const status = queue =>
   `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.names.join(', ') || 'Off'}\` | Loop: \`${
     queue.repeatMode ? (queue.repeatMode === 2 ? 'All Queue' : 'This Song') : 'Off'
@@ -137,4 +130,8 @@ client.distube
         .setDescription("Finished!")
         .setTimestamp()
         queue.textChannel.send({embeds:[finished_embed]})})
+client.distube.on('error', (channel, error) => {
+  console.error(error)
+  channel.send(`An error encoutered: ${error.slice(0, 1979)}`) // Discord limits 2000 characters in a message
+      })
 client.login(process.env.TOKEN)
