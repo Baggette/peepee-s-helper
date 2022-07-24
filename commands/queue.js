@@ -19,6 +19,7 @@ module.exports={
         .join("\n");
 
       const embed = new EmbedBuilder()
+        .setColor("#FF0000")
         .setDescription(
           `${(
             `Here's the server queue${
@@ -32,7 +33,7 @@ module.exports={
           )}\n${songs}`
         );
 
-      message.reply({
+      message.channel.send({
         embeds: [embed],
       });
     }
