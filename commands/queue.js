@@ -1,4 +1,3 @@
-const { error } = require("console");
 const {EmbedBuilder} = require("discord.js")
 const fs = require('fs');
 module.exports={

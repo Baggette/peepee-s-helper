@@ -1,6 +1,5 @@
 const Economy = require('discord-economy-super');
 const {EmbedBuilder} = require('discord.js');
-const { execute } = require('./work');
 const eco = new Economy({
     storagePath: './storage.json', // Full path to a JSON File. Default: './storage.json'.
     checkStorage: true, // Checks the if database file exists and if it has errors. Default: true.
