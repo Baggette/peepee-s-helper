@@ -46,6 +46,12 @@ client.on("messageCreate", (message) => {
             setTimeout(() => msg.delete(), 5000)
           })
       }
+    if (message.content.startsWith(Prefix) && message.channel.id === "875353517387292682" && !commandWhitelist.includes(command)){
+          message.reply("Please do not use bot commands in in game chat, use <#873623280177799198> instead.") 
+          .then(msg => {
+            setTimeout(() => msg.delete(), 5000)
+          })
+      }
       if (message.mentions.users.has(client.user.id) && !message.author.bot) {
         message.reply(`my prefix here is ${Prefix}`)
        .then(msg => {
