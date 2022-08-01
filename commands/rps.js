@@ -11,14 +11,14 @@ module.exports={
         .setTimestamp()
 
         message.channel.send({embeds:[embed]})
-        }else if(!args[0].includes("rock" || "paper" || "scissors")){
+        }else if(!args[0] == array.some(["rock","paper","scissors"])){
             const embed = new EmbedBuilder()
             .setColor("#FF0000")
             .setDescription("That wasn't rock, paper or scissors")
             .setTimestamp()
 
             message.channel.send({embeds:[embed]})
-        }else if(args[0].includes("rock" || "paper" || "scissors")){
+        }else if(args[0] == array.some(["rock","paper","scissors",])){
             const result = game.play(args[0])
             const result1 = JSON.stringify(result)
             const result2 = JSON.parse(result1)
