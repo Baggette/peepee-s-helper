@@ -22,7 +22,9 @@ module.exports ={
             {name:"`p!status`", value:"Displays server info and status"},
             {name:"`p!mcping <server ip> <port>`", value:"Pings a desired minecraft server. Currently only supports Java servers"},
             {name:"`p!pepsi`",value:"Get info about the economy system built into the bot"},
-            {name:"`p!music`", value:"See the music commands for the bot"}
+            {name:"`p!music`", value:"See the music commands for the bot"},
+            {name:"`p!guess`", value:"I will try and guess any character"},
+            {name:"`p!rps <rock|paper|scissors>`", value:"Rock, paper, scissors"},
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
