@@ -16,7 +16,7 @@ module.exports={
             const songs = queue.songs
         .map((song, pos) => {
           return `${
-            pos === 0 ? `Here's the server queue (will only show 20 at a time) \n run p!queue <page number> to see other pages\n Current:` : `#${pos}.`
+            pos === 0 ? `Behold, the server queue (max 20 at a time) \n Run p!queue <page number> to see more pages\n Current:` : `#${pos}.`
           } **${song.name}** \`[${
             song.formattedDuration
           }]\``;
@@ -46,7 +46,7 @@ module.exports={
             try {const songs = queue.songs
         .map((song, pos) => {
           return `${
-            pos === parseInt(args[0]) * 20 - 20 ? `Here's the server queue (will only show 20 at a time) \n run p!queue <page number> to see other pages\n #${parseInt(args[0]) * 20 - 20}:` : `#${pos}.`
+            pos === parseInt(args[0]) * 20 - 20 ? `Behold, the server queue (max 20 at a time) \n Run p!queue <page number> to see more pages\n #${parseInt(args[0]) * 20 - 20}:` : `#${pos}.`
           } **${song.name}** \`[${
             song.formattedDuration
           }]\``;
@@ -77,7 +77,7 @@ module.exports={
         const songs = queue.songs
         .map((song, pos) => {
           return `${
-            pos === 0 ? `**An error occurred running your command, perhaps the page number is invaild** \n **${err}**\n Current:` : `#${pos}.`
+            pos === 0 ? `**An error occurred running your command. Is the page number invalid?** \n **${err}**\n Current:` : `#${pos}.`
           } **${song.name}** \`[${
             song.formattedDuration
           }]\``;

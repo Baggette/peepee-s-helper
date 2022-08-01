@@ -14,7 +14,7 @@ module.exports={
         }else if(!["rock", "paper", "scissors"].includes(args[0]?.toLowerCase())){
             const embed = new EmbedBuilder()
             .setColor("#FF0000")
-            .setDescription("That wasn't rock, paper or scissors")
+            .setDescription("That wasn't rock, paper, or scissors")
             .setTimestamp()
 
             message.channel.send({embeds:[embed]})
