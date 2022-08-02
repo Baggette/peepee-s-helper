@@ -1,7 +1,7 @@
 const akinator = require("discord.js-akinator")
 module.exports={
     name:"guess",
-    description:"Lets play a game",
+    description:"Let's play a game",
     execute: async(client, message, args)=>{
         akinator(message, {
             language: "en", // Defaults to "en"
