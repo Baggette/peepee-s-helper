@@ -25,7 +25,8 @@ module.exports ={
             {name:"`p!music`", value:"See the music commands for the bot"},
             {name:"`p!gayrate <something>`", value:"See how gay something is"},
             {name:"`p!guess`", value:"Play a guessing game"},
-            {name:"`p!rps <rock|paper|scissors>`", value:"Rock, paper and scissors"}
+            {name:"`p!rps <rock|paper|scissors>`", value:"Rock, paper and scissors"},
+            {name:"`p!userinfo <user or id>`", value:"Displays user info"}
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
