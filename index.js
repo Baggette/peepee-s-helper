@@ -23,7 +23,7 @@ client.distube = new DisTube(client, {
     new YtDlpPlugin()
   ]
 })
-const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console", "ping"]
+const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console", "ping", "userinfo",]
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -76,7 +76,7 @@ client.on('messageCreate', (message) => {
             setTimeout(() => msg.delete(), 5000)
           })
       };
-      if(message.channelId === "872185514885791796" || message.channelId === "875353517387292682" && !commandWhitelist.includes(command))return
+      if(message.channelId === "872185514885791796" && !commandWhitelist.includes(command) || message.channelId === "875353517387292682" && !commandWhitelist.includes(command))return
     
       if (!client.commands.get(command)) {
           return
