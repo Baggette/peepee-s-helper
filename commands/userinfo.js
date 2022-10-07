@@ -14,6 +14,7 @@ module.exports={
                 .setAuthor({name:target.user.tag, iconURL: target.user.avatarURL({dynamic:true, size:512})})
                 .setColor("#FF0000")
                 .addFields(
+                    {name:"User ID:", value: `${target.user.id}`, inline: true},
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
                     {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
@@ -37,9 +38,11 @@ module.exports={
                 .setAuthor({name:target.user.tag, iconURL: target.user.avatarURL({dynamic:true, size:512})})
                 .setColor("#FF0000")
                 .addFields(
+                    {name:"User ID:", value: `${target.user.id}`, inline: true},
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
                     {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
+                    
                 )
                 .setTimestamp()
                 message.channel.send({embeds:[embed]})
