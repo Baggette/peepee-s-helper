@@ -3,13 +3,10 @@ module.exports={
     name:"volume",
     desciption:"Adjust the volume of the music",
     execute(client, message, args){
-        if (parseInt(args[0]) >= 200){
             const volume_too_high = new EmbedBuilder()
             .setColor("#FF0000")
             .setDescription("Volume too high!")
             .setTimestamp()
-            return message.channel.send({embeds:[volume_set_embed]})
-        }
         if (!message.member.voice.channel) {
             const must_be_in_vc_embed = new EmbedBuilder()
           .setColor('#FF0000')
@@ -29,6 +26,7 @@ module.exports={
         .setDescription(`Please enter a valid number! (0-100 you can go above 100 but it is not reccomended as the audio will start to tear)`)
         .setTimestamp()
     if (isNaN(volume)) return message.channel.send({embeds:[no_valid_number_embed]})
+    if (parseInt(args[0] >= 200)) return message.channel.send({embeds:[volume_set_embed]})
     queue.setVolume(volume)
     const volume_set_embed = new EmbedBuilder()
         .setColor('#FF0000')
