@@ -3,6 +3,13 @@ module.exports={
     name:"volume",
     desciption:"Adjust the volume of the music",
     execute(client, message, args){
+        if (parseInt(args[0]) <= 200){
+            const volume_too_high = new EmbedBuilder()
+            .setColor("#FF0000")
+            .setDescription("Volume too high!")
+            .setTimestamp()
+            return message.channel.send({embeds:[volume_set_embed]})
+        }
         if (!message.member.voice.channel) {
             const must_be_in_vc_embed = new EmbedBuilder()
           .setColor('#FF0000')

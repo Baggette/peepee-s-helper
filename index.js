@@ -143,3 +143,4 @@ client.distube.on('error', (channel, error) => {
   channel.send(`An error encoutered: ${error.slice(0, 1979)}`) // Discord limits 2000 characters in a message
       })
 client.login(process.env.TOKEN)
+
