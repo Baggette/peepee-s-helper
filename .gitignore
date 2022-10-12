@@ -27,3 +27,4 @@ config.py
 storage.json
 package-lock.json
 queue.json
+ffmpeg.exe
