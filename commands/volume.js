@@ -3,7 +3,7 @@ module.exports={
     name:"volume",
     desciption:"Adjust the volume of the music",
     execute(client, message, args){
-        if (parseInt(args[0]) <= 200){
+        if (parseInt(args[0]) >= 200){
             const volume_too_high = new EmbedBuilder()
             .setColor("#FF0000")
             .setDescription("Volume too high!")
