@@ -10,7 +10,7 @@ module.exports ={
     description:"Minecraft server status",
     execute(client, message, args){
         
-       util.status('pepionline.dimitrodam.com', 25581, options)
+       util.status('play.pepi.cf', 25591, options)
     .then((result) => {
         
         const string1 = JSON.stringify(result);
