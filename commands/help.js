@@ -10,7 +10,7 @@ module.exports ={
         .addFields(
             {name:"`p!about`", value:"Information about the origins of this server"},
             {name:"`p!appeal`", value:'Get some basic information on how to appeal a ban'},
-            {name:"`p!commands`", value:"Get a list of useful in-game 
+            {name:"`p!commands`", value:"Get a list of useful in-game"},
             {name:"`p!grief`", value:"Some basic information on how to report a grief"},
             {name:"`p!help`", value:"This command"},
             {name:"`p!ip`", value:"Displays the server IP"},
