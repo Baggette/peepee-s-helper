@@ -23,6 +23,7 @@ client.distube = new DisTube(client, {
     new YtDlpPlugin()
   ]
 })
+const phrases = require("./phrases.json")
 const commandWhitelist = ["kick", "ban", "status", "appeal", "ip", "console", "ping", "userinfo",]
 client.commands = new Discord.Collection();
 
@@ -36,7 +37,6 @@ client.on('ready', () => {
     console.log('Peepee is online')
     client.user.setPresence({ activities: [{ name: 'the PepiOnLine SMP', type: 'WATCHING' }], status: 'active' });
 });
-
 client.on("messageCreate", (message) => {
     const args = message.content.slice(Prefix.length).split(/ +/);
       const command = args.shift().toLowerCase();
@@ -47,6 +47,21 @@ client.on("messageCreate", (message) => {
           }) 
           return;
       }
+    if(phrases.phrases.includes(message.content)){
+      const embed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
+        .setTitle('The server IP')
+        .setDescription('Did you forget the IP?')
+        .addFields(
+            {name:"Java", value:"pepionline.dimitrodam.com"},
+            {name:"Bedrock", value:"51.91.164.41"},
+            {name:"Port", value:"25591"},
+            {name:"Are you on console?", value:"Refer to `p!console`"}
+        )
+        .setTimestamp()
+        message.reply({embeds: [embed]})
+    }
     if (message.content.startsWith(Prefix) && message.channel.id === "875353517387292682" && !commandWhitelist.includes(command)){
           message.reply("Please do not use bot commands in in game chat, use <#873623280177799198> instead.") 
           .then(msg => {
