@@ -48,8 +48,8 @@ module.exports={
             setTimeout(() => { msg1.edit({embeds:[message7]}) }, 4000);
             clearTimeout
 
-        }
-        const embed = new EmbedBuilder()
+        } else {
+            const embed = new EmbedBuilder()
         .setTitle("Prepare to be beaned...")
         .setColor("#ff0000")
         .setTimestamp()
@@ -92,5 +92,7 @@ module.exports={
         .setTimestamp()
         setTimeout(() => { msg1.edit({embeds:[message7]}) }, 4000);
         clearTimeout
+        }
+        
     }
 }
