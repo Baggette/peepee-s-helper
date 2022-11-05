@@ -4,7 +4,8 @@
   "description": "A bot to help out the PepiOnLine SMP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "slash": "node deploycmds.js"
   },
   "author": "Baggette",
   "license": "ISC",
