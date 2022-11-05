@@ -13,7 +13,7 @@ module.exports={
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
     .setDMPermission(false),
-    async execute(interaction){
+    async execute(interaction, client){
         await interaction.deferReply()
         try{
         const target = interaction.options.getMember("target")
