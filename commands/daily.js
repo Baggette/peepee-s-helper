@@ -37,7 +37,7 @@ const eco = new Economy({
         const daily = eco.rewards.daily(message.author.id, message.guild.id)
         const claimed_daily_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription(`You already claimed your reward today! Time left until next reward: **${daily.value.days}** days, **${daily.value.hours}** hours, **${daily.value.minutes}** minutes, and **${daily.value.seconds}** seconds.`)
+        .setDescription(`You've already claimed your reward today! Time left until next reward: **${daily.value.days}** days, **${daily.value.hours}** hours, **${daily.value.minutes}** minutes, and **${daily.value.seconds}** seconds.`)
         .setTimestamp()
         if (!daily.status) return message.channel.send({embeds:[claimed_daily_embed]})
         const daily_embed = new EmbedBuilder()
