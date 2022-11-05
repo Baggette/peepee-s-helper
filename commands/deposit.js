@@ -12,7 +12,7 @@ const eco = new Economy({
     updateCountdown: 1000, // Checks for if storage file exists in specified time (in ms). Default: 1000.
     dateLocale: 'en', // The region (example: ru; en) to format date and time. Default: 'ru'.
     updater: {
-          checkUpdates: true, // Sends the update state message in console on start. Default: true.
+          checkUpdates: false, // Sends the update state message in console on start. Default: true.
           upToDateMessage: true // Sends the message in console on start if module is up to date. Default: true.
       },
       errorHandler: {
