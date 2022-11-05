@@ -1,10 +1,11 @@
-const {Client, Intents, EmbedBuilder} = require('discord.js');
+const {Client, Intents, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
 const dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js')
 const fs = require('fs')
 const Prefix = "p!"
 const { DisTube } = require('distube')
+const path = require('node:path');
 const client = new Client({
     intents: [
         "Guilds",
@@ -32,6 +33,21 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
 
     client.commands.set(command.name, command)
+}
+client.slashcommands = new Discord.Collection();
+
+const slashcommandsPath = path.join(__dirname, 'slash');
+const slashcommandFiles = fs.readdirSync(slashcommandsPath).filter(file => file.endsWith('.js'));
+
+for (const file of slashcommandFiles) {
+	const filePath = path.join(slashcommandsPath, file);
+	const slashcommand = require(filePath);
+	// Set a new item in the Collection with the key as the command name and the value as the exported module
+	if ('data' in slashcommand && 'execute' in slashcommand) {
+		client.slashcommands.set(slashcommand.data.name, slashcommand);
+	} else {
+		console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+	}
 }
 client.on('ready', () => {
     console.log('Peepee is online')
@@ -79,6 +95,24 @@ client.on("messageCreate", (message) => {
       
    //RUN COMMANDS
 
+});
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const slash = interaction.client.slashcommands.get(interaction.commandName);
+
+	if (!slash) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await slash.execute(interaction, client);
+	} catch (error) {
+		console.error(`Error executing ${interaction.commandName}`);
+		console.error(error);
+	}
 });
 
 client.on('messageCreate', (message) => { 
