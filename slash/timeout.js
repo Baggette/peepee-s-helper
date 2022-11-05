@@ -34,7 +34,7 @@ module.exports={
             const embed = new EmbedBuilder()
             .setTitle("user was muted")
             .setColor("#ff0000")
-            .setDescription(`The user ${target} was muted for ${time} minute(s) because of ${reason} \n User muted by: ${interaction.user}`)
+            .setDescription(`The user ${target} was muted for \`${time}\` minute(s) because of \`${reason}\` \n User muted by: ${interaction.user}`)
             .setTimestamp()
             client.channels.cache.get("872196978010882109").send({embeds:[embed]})
             await interaction.editReply(`Successfully timed out ${target} for ${time} minutes`)
