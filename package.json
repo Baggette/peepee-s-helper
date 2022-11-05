@@ -25,6 +25,7 @@
     "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
     "minecraft-server-util": "^5.2.9",
+    "modmail.djs": "^1.0.9",
     "pretty-ms": "^7.0.1",
     "sodium": "^3.0.2"
   }

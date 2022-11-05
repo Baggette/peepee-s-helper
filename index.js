@@ -1,4 +1,5 @@
-const {Client, Intents, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
+const {Client, Intents, EmbedBuilder, Events, GatewayIntentBits, Partials } = require('discord.js');
+const { Manager } = require('modmail.djs');
 const dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js')
@@ -7,12 +8,13 @@ const Prefix = "p!"
 const { DisTube } = require('distube')
 const path = require('node:path');
 const client = new Client({
-    intents: [
-        "Guilds",
-        "GuildMessages",
-        "MessageContent",
-        "GuildVoiceStates"
-    ]
+  intents: Object.keys(GatewayIntentBits), // all intents
+  partials: [Partials.Message, Partials.Channel, Partials.Reaction]
+});
+const manager = new Manager(client, {
+  guildId: '872185514193735751',
+  categoryId: '1038511128692658186',
+  role: '1038511576363311134'
 });
 const { YtDlpPlugin } = require('@distube/yt-dlp')
 client.distube = new DisTube(client, {
@@ -52,6 +54,7 @@ for (const file of slashcommandFiles) {
 client.on('ready', () => {
     console.log('Peepee is online')
     client.user.setPresence({ activities: [{ name: 'the PepiOnLine SMP', type: 'WATCHING' }], status: 'active' });
+    manager.setModmail();
 });
 client.on("messageCreate", (message) => {
     const args = message.content.slice(Prefix.length).split(/ +/);
