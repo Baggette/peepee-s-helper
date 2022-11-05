@@ -10,8 +10,8 @@ module.exports ={
         .setDescription('Did you forget the IP?')
         .addFields(
             {name:"Java", value:"pepionline.dimitrodam.com"},
-            {name:"Bedrock", value:"54.39.250.160"},
-            {name:"Port", value:"25581"},
+            {name:"Bedrock", value:"51.91.164.41"},
+            {name:"Port", value:"25591"},
             {name:"Are you on console?", value:"Refer to `p!console`"}
         )
         .setTimestamp()
