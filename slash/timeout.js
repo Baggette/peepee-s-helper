@@ -1,4 +1,5 @@
-const {SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder} = require("discord.js")
+const {SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder} = require("discord.js");
+const { trace } = require("node:console");
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports={
@@ -41,7 +42,7 @@ module.exports={
             .setTitle("You were muted!")
             .setColor("#ff0000")
             .setDescription(`You were muted in The PepiOnline SMP for ${time} minute(s) because of \`${reason}\` \n To appleal this dm this bot to talk to staff`)
-            await interaction.user.send({embeds:[dm]})
+            client.users.send(target, {embeds:[dm]})
             await interaction.editReply(`Successfully timed out ${target} for ${time} minutes`)
         }
         catch(err){
