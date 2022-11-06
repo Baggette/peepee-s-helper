@@ -27,6 +27,7 @@ module.exports ={
         {name:"Max Players", value:`${string.players.max}`},
         {name:"MOTD (May Not Display Accurately)", value:`${string.motd.clean}`},
         {name:"Latency", value:`${string.roundTripLatency}`},
+        {name:"Player List", value:`${string.players.sample}`}
     )
     .setTimestamp()
     fs.writeFileSync('data.json', string1);
