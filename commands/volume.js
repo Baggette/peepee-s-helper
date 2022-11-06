@@ -23,7 +23,7 @@ module.exports={
         .setDescription("Volume too high!")            .setTimestamp()
     const no_valid_number_embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setDescription(`Please enter a valid number! (0-100 you can go above 100 but it is not reccomended as the audio will start to tear)`)
+        .setDescription(`Please enter a valid number! (0-100. You can go above 100, but it's not recommended as the audio will start to tear)`)
         .setTimestamp()
     if (isNaN(volume)) return message.channel.send({embeds:[no_valid_number_embed]})
     if (volume >= 151) return message.channel.send({embeds:[volume_too_high]})
