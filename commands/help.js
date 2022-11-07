@@ -29,6 +29,7 @@ module.exports ={
             {name:"`p!choose thing1 thing2`", value:"Make me pick things"},
             {name:"`p!pepi`", value:"See if pepi is online, offline, idle or dnd"},
             {name:"`p!choose <thing1> <thing2>`", value:"Choose between two options"},
+            {name:"`p!copper`", value:"Copper ig"}
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
