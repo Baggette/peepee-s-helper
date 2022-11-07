@@ -26,8 +26,12 @@ module.exports ={
             {name:"`p!guess`", value:"Play a guessing game"},
             {name:"`p!rps <rock|paper|scissors>`", value:"Rock, paper and scissors"},
             {name:"`p!userinfo <user or id>`", value:"Displays user info"},
+<<<<<<< HEAD
             {name:"`p!choose thing1 thing2`", value:"Make me pick things"},
             {name:"`p!pepi`", value:"See if pepi is online, offline, idle or dnd"}
+=======
+            {name:"`p!choose <thing1> <thing2>`", value:"Choose between two options"}
+>>>>>>> 34c4ee08ec3e4024766ad4915b8af79b25aacfe1
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})

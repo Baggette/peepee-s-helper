@@ -41,7 +41,7 @@ const eco = new Economy({
         if (!lb.length) return message.channel.send({embeds:[empty_lb_embed]})
         const lb_embed = new EmbedBuilder()
         .setColor("#FF0000")
-        .setDescription(`Pepsi coin Leaderboard for **${message.guild.name}**\n-----------------------------------\n` + lb.map((x, i) => `${i + 1}. <@${x.userID}> - ${x.money} coins`).join('\n'))
+        .setDescription(`Pepsi coin leaderboard for **${message.guild.name}**\n-----------------------------------\n` + lb.map((x, i) => `${i + 1}. <@${x.userID}> - ${x.money} coins`).join('\n'))
         .setTimestamp()
         message.channel.send({embeds:[lb_embed]})
     
