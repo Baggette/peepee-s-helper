@@ -1,6 +1,4 @@
 const {SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder} = require("discord.js");
-const { trace } = require("node:console");
-const wait = require('node:timers/promises').setTimeout;
 
 module.exports={
     data: new SlashCommandBuilder()
