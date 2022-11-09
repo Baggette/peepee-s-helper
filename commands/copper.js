@@ -3,7 +3,7 @@ const {EmbedBuilder} =  require('discord.js')
 module.exports={
     name:"copper",
     description:"Idk why this is a thing",
-    async execute(message){
+    execute(client, message, args){
     const embed = new EmbedBuilder()
     .setTitle("Copper")
     .setDescription("Copper was first used by man over 10,000 years ago. A copper pendant discovered in what is now northern Iraq has been dated about 8700 B.C. For nearly five millennia copper was the only metal known to man, and thus had all the metal applications. \n \
