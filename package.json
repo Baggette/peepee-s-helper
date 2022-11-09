@@ -22,7 +22,6 @@
     "distube": "^4.0.4",
     "dotenv": "^16.0.0",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
     "minecraft-server-util": "^5.2.9",
     "modmail.djs": "^1.0.9",
