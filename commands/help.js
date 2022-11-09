@@ -3,10 +3,11 @@ module.exports ={
     name:'help',
     description:'Help command',
     execute(client, message, args){
-        const embed = new EmbedBuilder()
+        if(!args[0] || args[0] == "1"){
+            const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
-        .setTitle("Command list for peepee's helper")
+        .setTitle("Command list for peepee's helper (page 1), run `p!help 2` for page 2")
         .addFields(
             {name:"`p!about`", value:"Information about the origins of this server"},
             {name:"`p!appeal`", value:'Get some basic information on how to appeal a ban'},
@@ -33,5 +34,18 @@ module.exports ={
         )
         .setTimestamp()
         message.channel.send({embeds:[embed]})
+        }else if(args[0] == "2"){
+            const embed = new EmbedBuilder()
+            .setColor('#FF0000')
+        .setAuthor({name:"Peepee's Helper", iconURL:"https://cdn.discordapp.com/avatars/955886518638088304/04d9cc2d397db8d50fcc756113ab25d2.webp?size=80"})
+        .setTitle("Command list for peepee's helper (page 2)")
+        .addFields(
+            {name:"`p!dog`", value:"Get a dog image"},
+            {name:"`p!cat`", value:"Get a cat image"}
+        )
+        .setTimestamp()
+        message.channel.send({embeds:[embed]}) 
+        }
+        
     }
 }
