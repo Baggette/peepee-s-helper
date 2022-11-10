@@ -1,10 +1,10 @@
 const {EmbedBuilder} = require("discord.js")
-const get = require("node-fetch")
+import get from "node-fetch"
 module.exports={
     name:"dog",
     description:"See a doggo",
     execute(client, message, args){
-        fetch("https://aws.random.cat/meow")
+        get("https://aws.random.cat/meow")
         .then(res => res.json())
         .then((response) => {
             const embed = new EmbedBuilder()

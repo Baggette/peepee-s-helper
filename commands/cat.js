@@ -1,5 +1,5 @@
 const {EmbedBuilder} = require("discord.js")
-const get = require("node-fetch")
+import get from "node-fetch"
 module.exports={
     name:"cat",
     description:"See a kitty",

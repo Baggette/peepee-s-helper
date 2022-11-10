@@ -1,5 +1,5 @@
 const {SlashCommandBuilder, EmbedBuilder} = require("discord.js")
-const get = require("node-fetch")
+import get from "node-fetch"
 module.exports={
     data: new SlashCommandBuilder()
     .setName("dog")
