@@ -1,12 +1,12 @@
 const {SlashCommandBuilder, EmbedBuilder} = require("discord.js")
-
+const get = require("node-fetch")
 module.exports={
     data: new SlashCommandBuilder()
     .setName("dog")
     .setDescription("see a doggo"),
     async execute(interaction){
         await interaction.deferReply()
-        fetch("https://dog.ceo/api/breeds/image/random")
+        get("https://dog.ceo/api/breeds/image/random")
         .then(res => res.json())
         .then(async (response) => {
             const embed = new EmbedBuilder()
