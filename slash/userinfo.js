@@ -28,10 +28,11 @@ module.exports={
                     {name:"User ID:", value: `${target.user.id}`, inline: true},
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
-                    {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
                     {name:"Status: ", value:`${custom_status}`, inline: true},
-                    {name:"Activity Name: ", value:`${activity_name}`},
-                    {name:"Activity Details: ", value:`${activity_details}`, inline: true}
+                    {name:"Activity Name: ", value:`${activity_name}`, inline: true},
+                    {name:"Activity Details: ", value:`${activity_details}`, inline: true},
+                    {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`}
+                    
                 )
                 .setTimestamp()
                 await interaction.editReply({embeds:[embed]})
@@ -50,10 +51,11 @@ module.exports={
                     {name:"User ID:", value: `${target.user.id}`, inline: true},
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
-                    {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
                     {name:"Status: ", value:`${custom_status}`, inline: true},
-                    {name:"Activity Name: ", value:`${activity_name}`},
-                    {name:"Activity Details: ", value:`${activity_details}`, inline: true}
+                    {name:"Activity Name: ", value:`${activity_name}`, inline: true},
+                    {name:"Activity Details: ", value:`${activity_details}`, inline: true},
+                    {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`}
+                    
                     
                 )
                 .setTimestamp()
