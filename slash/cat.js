@@ -1,19 +1,19 @@
 const {SlashCommandBuilder, EmbedBuilder} = require("discord.js")
-import get from "node-fetch"
+const got = require("got")
 module.exports={
     data: new SlashCommandBuilder()
     .setName("cat")
     .setDescription("see a kitty"),
     async execute(interaction){
         await interaction.deferReply()
-        get("https://aws.random.cat/meow")
-        .then(res => res.json())
-        .then(async (response) => {
+        got("https://aws.random.cat/meow")
+        .then(async response =>{
+            const data = JSON.parse(response.body)
             const embed = new EmbedBuilder()
             .setTitle("Kitties")
             .setColor('#ff0000')
-            .setURL(`${response.file}`)
-            .setImage(`${response.file}`)
+            .setURL(`${data.file}`)
+            .setImage(`${data.file}`)
             .setTimestamp()
             await interaction.editReply({embeds:[embed]})
         })

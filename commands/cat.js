@@ -1,17 +1,17 @@
 const {EmbedBuilder} = require("discord.js")
-import get from "node-fetch"
+const got = require("got")
 module.exports={
     name:"cat",
-    description:"See a kitty",
-    execute(client, message, args){
-        get("https://aws.random.cat/meow")
-        .then(res => res.json())
-        .then((response) => {
+    description:"see a kitty",
+    async execute(client, message, args){
+        got("https://aws.random.cat/meow")
+        .then(response =>{
+            const data = JSON.parse(response.body)
             const embed = new EmbedBuilder()
             .setTitle("Kitties")
             .setColor('#ff0000')
-            .setURL(`${response.file}`)
-            .setImage(`${response.file}`)
+            .setURL(`${data.file}`)
+            .setImage(`${data.file}`)
             .setTimestamp()
             message.channel.send({embeds:[embed]})
         })

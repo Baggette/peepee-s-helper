@@ -1,22 +1,22 @@
 const {EmbedBuilder} = require("discord.js")
-import get from "node-fetch"
+const got = require('got')
 module.exports={
     name:"dog",
-    description:"See a doggo",
-    execute(client, message, args){
-        get("https://aws.random.cat/meow")
-        .then(res => res.json())
-        .then((response) => {
+    description:"see a doggo",
+    async execute(client, message, args){
+        got("https://dog.ceo/api/breeds/image/random")
+        .then(response =>{
+            const data = JSON.parse(response.body)
             const embed = new EmbedBuilder()
             .setTitle("Doggos")
             .setColor('#ff0000')
-            .setURL(`${response.message}`)
-            .setImage(`${response.message}`)
+            .setURL(`${data.message}`)
+            .setImage(`${data.message}`)
             .setTimestamp()
             message.channel.send({embeds:[embed]})
         })
         .catch((err) =>{
-            message.channel.send(`An error occorred whilst running the command \n ${err}`)
+            message.channel.send(`An error occured \n ${err}`)
         })
     }
 }
