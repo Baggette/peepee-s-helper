@@ -15,6 +15,10 @@ module.exports={
          if(!id){
                  const id = interaction.user
                  const target = await guild.members.fetch(id)
+                 const status = await guild.presences.resolve(id)
+                 const custom_status = status.activities[0]?.state ?? "`No status`"
+                 const activity_name = status.activities[1]?.name ?? "`No activity name`"
+                 const activity_details = status.activities[1]?.details ?? "`No activity details`"
                 const embed = new EmbedBuilder()
                 .setTitle(`User info for ${target.user.tag}`)
                 .setThumbnail(target.user.avatarURL({dynamic:true, size:512}))
@@ -25,11 +29,18 @@ module.exports={
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
                     {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
+                    {name:"Status: ", value:`${custom_status}`, inline: true},
+                    {name:"Activity Name: ", value:`${activity_name}`},
+                    {name:"Activity Details: ", value:`${activity_details}`, inline: true}
                 )
                 .setTimestamp()
                 await interaction.editReply({embeds:[embed]})
          }else{
                  const target = await guild.members.fetch(id)
+                 const status = await guild.presences.resolve(id)
+                 const custom_status = status.activities[0]?.state ?? "`No status`"
+                 const activity_name = status.activities[1]?.name ?? "`No activity name`"
+                 const activity_details = status.activities[1]?.details ?? "`No activity details`"
                 const embed = new EmbedBuilder()
                 .setTitle(`User info for ${target.user.tag}`)
                 .setThumbnail(target.user.avatarURL({dynamic:true, size:512}))
@@ -40,6 +51,9 @@ module.exports={
                     {name:"Account age: ", value:`<t:${parseInt(target.user.createdTimestamp / 1000 )}:R>`,inline:true},
                     {name:"Member since: ", value:`<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, inline: true},
                     {name:"Roles: ", value:`${target.roles.cache.map(r => r).join(" ")}`},
+                    {name:"Status: ", value:`${custom_status}`, inline: true},
+                    {name:"Activity Name: ", value:`${activity_name}`},
+                    {name:"Activity Details: ", value:`${activity_details}`, inline: true}
                     
                 )
                 .setTimestamp()
