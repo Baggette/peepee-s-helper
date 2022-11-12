@@ -1,4 +1,5 @@
 const {EmbedBuilder} = require('discord.js')
+const wait = require('node:timers/promises').setTimeout;
 module.exports={
   name:"kick",
   description:"Kicks a mentioned user",
@@ -35,6 +36,7 @@ module.exports={
               catch (error){
                 console.log("unable to dm")
               }
+              wait(4000)
               guild.members.kick(id)
               .then(user => message.channel.send(`<@${id}> was successfully kicked \n Because of ${reason}`))
               .catch((err) =>{

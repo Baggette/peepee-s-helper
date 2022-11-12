@@ -1,4 +1,5 @@
 const {EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits} = require('discord.js')
+const wait = require('node:timers/promises').setTimeout;
 module.exports={
     data: new SlashCommandBuilder()
   .setName("kick")
@@ -38,10 +39,11 @@ module.exports={
               catch (error){
                 console.log("unable to dm")
               }
+              wait(4000)
               guild.members.kick(id)
               .then(async user => await interaction.editReply(`${id} was successfully kicked \n Because of ${reason}`))
-              .catch((err) =>{
-                message.channel.send(`An error occorred: ${err}`)
+              .catch(async (err) =>{
+                await interaction.editReply(`An error occorred: ${err}`)
               })
        }
   }
