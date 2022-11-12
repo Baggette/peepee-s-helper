@@ -33,7 +33,7 @@ module.exports={
                 .setColor("#ff0000")
                 .setDescription(`You were banned because of ${reason}`)
                 .setTimestamp()
-                client.user.send(id, {embed})
+                client.user.send(id, {embeds:[embed]})
               }
               catch (error){
                 console.log("unable to dm")
