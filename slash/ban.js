@@ -19,7 +19,7 @@ module.exports={
   execute: async(interaction, client) =>{
             await interaction.deferReply()
             const guild = await client.guilds.fetch(interaction.guildId)
-            const id = interaction.options.getUser("user")
+            const id = interaction.options.getMember("user")
                const reason = interaction.options.getString("reason") ?? "No reason provided"
               console.log(id)
               const mod_log = new EmbedBuilder()
