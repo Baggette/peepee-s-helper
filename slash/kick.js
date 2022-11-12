@@ -24,7 +24,7 @@ module.exports={
               const mod_log = new EmbedBuilder()
               .setTitle(`User was kicked`)
               .setColor("#ff0000")
-              .setDescription(`<@${id}> was kicked because of ${reason} \n Responsible Moderator: ${interaction.user}`)
+              .setDescription(`${id} was kicked because of ${reason} \n Responsible Moderator: ${interaction.user}`)
               .setTimestamp()
               client.channels.cache.get("872196978010882109").send({embeds:[mod_log]})
               try{
@@ -35,11 +35,11 @@ module.exports={
                 .setTimestamp()
                 client.user.send(id, {embed})
               }
-              catch{
+              catch (error){
                 console.log("unable to dm")
               }
               guild.members.kick(id)
-              .then(async user => await interaction.editReply(`<@${id}> was successfully kicked \n Because of ${reason}`))
+              .then(async user => await interaction.editReply(`${id} was successfully kicked \n Because of ${reason}`))
               .catch((err) =>{
                 message.channel.send(`An error occorred: ${err}`)
               })

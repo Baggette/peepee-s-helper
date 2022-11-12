@@ -24,7 +24,7 @@ module.exports={
               const mod_log = new EmbedBuilder()
               .setTitle(`User was banned`)
               .setColor("#ff0000")
-              .setDescription(`<@${id}> was banned because of ${reason} \n Responsible Moderator: ${interaction.user}`)
+              .setDescription(`${id} was banned because of ${reason} \n Responsible Moderator: ${interaction.user}`)
               .setTimestamp()
               client.channels.cache.get("872196978010882109").send({embeds:[mod_log]})
               try{
@@ -35,7 +35,7 @@ module.exports={
                 .setTimestamp()
                 client.user.send(id, {embed})
               }
-              catch{
+              catch (error){
                 console.log("unable to dm")
               }
               guild.members.kick(id)

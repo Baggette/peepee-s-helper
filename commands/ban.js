@@ -32,7 +32,7 @@ module.exports={
                 .setTimestamp()
                 client.user.send(id, {embed})
               }
-              catch{
+              catch (error){
                 console.log("unable to dm")
               }
               guild.members.kick(id)
