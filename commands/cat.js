@@ -2,7 +2,7 @@ const {EmbedBuilder} = require("discord.js")
 const got = require("got")
 module.exports={
     name:"cat",
-    description:"see a kitty",
+    description:"see a pussy",
     async execute(client, message, args){
         got("https://aws.random.cat/meow")
         .then(response =>{
