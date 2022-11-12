@@ -14,7 +14,7 @@ module.exports={
         if(status == "online"){
             const embed = new EmbedBuilder()
             .setTitle("PepiOnLine")
-            .setDescription("Pepi is online")
+            .setDescription("Pepi is Online")
             .addFields(
                 {name:"Custom status", value:`${custom_status}`, inline: true},
                 {name:"Activity", value:`${activity_name}`, inline: true},
@@ -25,7 +25,7 @@ module.exports={
             message.channel.send({embeds:[embed]})
         }else if(status == "offline"){
             const embed = new EmbedBuilder()
-            .setTitle("PepiOffline")
+            .setTitle("PepiOffLine")
             .setDescription("Pepi is Offline")
             .setColor("#808080")
             .setTimestamp()
@@ -33,7 +33,7 @@ module.exports={
         }else if(status == "dnd"){
             const embed = new EmbedBuilder()
             .setTitle("PepiDnD")
-            .setDescription("Pepi is DnD")
+            .setDescription("Pepi is Not to be Disturbed")
             .addFields(
                 {name:"Custom status", value:`${custom_status}`, inline: true},
                 {name:"Activity", value:`${activity_name}`, inline: true},
@@ -45,7 +45,7 @@ module.exports={
         }else if(status == "idle"){
             const embed = new EmbedBuilder()
             .setTitle("PepiIdle")
-            .setDescription("Pepi is idle")
+            .setDescription("Pepi is Idle")
             .addFields(
                 {name:"Custom status", value:`${custom_status}`, inline: true},
                 {name:"Activity", value:`${activity_name}`, inline: true},

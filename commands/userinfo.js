@@ -31,7 +31,7 @@ module.exports={
                 message.channel.send({embeds:[embed]})
             }
             catch(err){
-                message.channel.send(`Either that is not a valid user or id or an error occorred\n error: ${err}`)
+                message.channel.send(`Either that is not a valid user or id or an error occurred\n error: ${err}`)
                 console.log(err)
             }
          }else{
