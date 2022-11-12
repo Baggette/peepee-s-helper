@@ -32,18 +32,14 @@ module.exports={
                 const embed = new EmbedBuilder()
                 .setTitle("You were kicked from The PepiOnLine SMP")
                 .setColor("#ff0000")
-                .setDescription(`You were kicked because of ${reason}`)
+                .setDescription(`You were kicked because of \`${reason}\``)
                 .setTimestamp()
-                client.user.send(id, {embeds:[embed]})
+                await client.users.send(id, {embeds:[embed]})
               }
               catch (error){
                 console.log("unable to dm")
               }
-              wait(4000)
-              guild.members.kick(id)
-              .then(async user => await interaction.editReply(`${id} was successfully kicked \n Because of ${reason}`))
-              .catch(async (err) =>{
-                await interaction.editReply(`An error occorred: ${err}`)
-              })
+              await interaction.editReply(`${id} was successfully kicked \n Because of \`${reason}\``)
+              await guild.members.kick(id)
        }
   }

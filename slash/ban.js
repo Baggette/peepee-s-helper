@@ -34,16 +34,12 @@ module.exports={
                 .setColor("#ff0000")
                 .setDescription(`You were banned because of ${reason}`)
                 .setTimestamp()
-                client.user.send(id, {embeds:[embed]})
+                await client.users.send(id, {embeds:[embed]})
               }
               catch (error){
                 console.log("unable to dm")
               }
-              wait(4000)
+              await interaction.editReply(`<@${id}> was successfully banned \n Because of \`${reason}\``)
               guild.members.kick(id)
-              .then(async user => await interaction.editReply(`<@${id}> was successfully banned \n Because of ${reason}`))
-              .catch((err) =>{
-                message.channel.send(`An error occorred: ${err}`)
-              })
        }
   }
