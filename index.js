@@ -54,7 +54,7 @@ for (const file of slashcommandFiles) {
 client.on('ready', () => {
     console.log('Peepee is online')
     client.user.setPresence({ activities: [{ name: 'the PepiOnLine SMP', type: 'WATCHING' }], status: 'active' });
-    manager.setModmail();
+    manager.setModmail(); 
 });
 client.on("messageCreate", (message) => {
     const args = message.content.slice(Prefix.length).split(/ +/);
@@ -118,7 +118,8 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
-client.on('messageCreate', (message) => { 
+client.on('messageCreate', async (message) => {
+  
       if (!message.content.startsWith(Prefix) || message.author.bot) return;
       const args = message.content.slice(Prefix.length).split(/ +/);
       const command = args.shift().toLowerCase();
@@ -193,6 +194,6 @@ client.distube
 client.distube.on('error', (channel, error) => {
   console.error(error)
   channel.send(`An error encoutered: ${error.slice(0, 1979)}`) // Discord limits 2000 characters in a message
-      })
+      }) 
 client.login(process.env.TOKEN)
 
